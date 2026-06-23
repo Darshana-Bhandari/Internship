@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Movie Ticket Booking System</title>
+</head>
+<body>
+
+    <h2>Online Movie Ticket Booking System</h2>
+    <p>Please fill out the form below to reserve your movie tickets.</p>
+    <hr>
+
+    <form action="#" method="POST">
+        <table cellpadding="5" cellspacing="5">
+            <tr>
+                <td><label for="fullname">Full Name:</label></td>
+                <td><input type="text" id="fullname" name="fullname" required placeholder="John Doe"></td>
+            </tr>
+
+            <tr>
+                <td><label for="email">Email Address:</label></td>
+                <td><input type="email" id="email" name="email" required placeholder="john@example.com"></td>
+            </tr>
+
+            <tr>
+                <td><label for="phone">Phone Number:</label></td>
+                <td><input type="tel" id="phone" name="phone" required placeholder="123-456-7890"></td>
+            </tr>
+
+            <tr>
+                <td><label for="movie">Select Movie:</label></td>
+                <td>
+                    <select id="movie" name="movie" required>
+                        <option value="">-- Choose a Movie --</option>
+                        <option value="avatar">Avatar: The Way of Water</option>
+                        <option value="oppenheimer">Oppenheimer</option>
+                        <option value="barbie">Barbie</option>
+                        <option value="spiderman">Spider-Man: Across the Spider-Verse</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="date">Select Date:</label></td>
+                <td><input type="date" id="date" name="date" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="time">Select Show Time:</label></td>
+                <td><input type="time" id="time" name="time" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="tickets">Number of Tickets:</label></td>
+                <td><input type="number" id="tickets" name="tickets" min="1" max="10" required placeholder="1"></td>
+            </tr>
+
+            <tr>
+                <td><label>Seat Type:</label></td>
+                <td>
+                    <input type="radio" id="regular" name="seattype" value="regular" checked>
+                    <label for="regular">Regular</label><br>
+                    
+                    <input type="radio" id="vip" name="seattype" value="vip">
+                    <label for="vip">VIP</label><br>
+                    
+                    <input type="radio" id="premium" name="seattype" value="premium">
+                    <label for="premium">Premium</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label>Food Options:</label></td>
+                <td>
+                    <input type="checkbox" id="popcorn" name="food" value="popcorn">
+                    <label for="popcorn">Popcorn</label><br>
+                    
+                    <input type="checkbox" id="drink" name="food" value="drink">
+                    <label for="drink">Cold Drink</label><br>
+                    
+                    <input type="checkbox" id="nachos" name="food" value="nachos">
+                    <label for="nachos">Nachos</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="special">Special Request:</label></td>
+                <td>
+                    <textarea id="special" name="special" rows="4" cols="30" placeholder="Any specific seating preferences, wheelchair accessibility, etc..."></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
