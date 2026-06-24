@@ -3,96 +3,462 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Clinic</title>
+    <title>MedCare — Premium Healthcare</title>
     <link rel="stylesheet" href="day4.css">
 </head>
 <body>
 
+    <!-- ── Header ─────────────────────────────────────────── -->
     <header class="header">
-        <div class="logo">MedCare</div>
+        <div class="logo">Med<span>Care</span></div>
         <nav class="navbar">
-            <a href="#hero">Home</a>
+            <a href="#hero" class="active">Home</a>
             <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#doctors">Doctors</a>
             <a href="#contact">Contact</a>
+            <a href="#appointment" class="btn-nav">Book Appointment</a>
         </nav>
     </header>
 
+    <!-- ── Hero ──────────────────────────────────────────── -->
     <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1>Your Health, Our Priority</h1>
-            <p>Providing world-class medical services with expert doctors.</p>
-            <a href="#appointment" class="btn">Book Appointment</a>
+        <div class="hero-inner">
+
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Accepting New Patients
+                </div>
+                <h1>Your Health<br>Is Our<br><em>First Priority</em></h1>
+                <p>World-class medical care delivered with compassion. From routine check-ups to complex procedures, our expert team is here for you.</p>
+                <div class="hero-actions">
+                    <a href="#appointment" class="btn btn-primary">Book Appointment →</a>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <strong>15K+</strong>
+                        <span>Patients Treated</span>
+                    </div>
+                    <div class="stat">
+                        <strong>40+</strong>
+                        <span>Expert Doctors</span>
+                    </div>
+                    <div class="stat">
+                        <strong>98%</strong>
+                        <span>Satisfaction Rate</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-card-group">
+                    <div class="hero-main-card">
+                        <div class="icon-ring">🏥</div>
+                        <h3>Advanced Medical Care</h3>
+                        <p>State-of-the-art facilities staffed by internationally trained physicians.</p>
+                    </div>
+                    <div class="floating-chip chip-1 chip-green">
+                        <div class="chip-icon">✅</div>
+                        <span>Next appt: Today 3PM</span>
+                    </div>
+                    <div class="floating-chip chip-2 chip-blue">
+                        <div class="chip-icon">👨‍⚕️</div>
+                        <span>40+ Specialists</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>We are dedicated to providing the best healthcare solutions...</p>
-    </section>
+    <!-- ── About ─────────────────────────────────────────── -->
+    <section id="about" class="about section">
+        <div class="about-inner">
 
-    <section id="services" class="services">
-        <h2>Our Services</h2>
-        <div class="grid-container">
-            <div class="card">Cardiology</div>
-            <div class="card">Neurology</div>
-            <div class="card">Pediatrics</div>
+            <div>
+                <span class="section-label">About MedCare</span>
+                <h2 class="section-title">Caring for Families<br>Since 2005</h2>
+                <span class="accent-bar left"></span>
+                <p class="section-sub" style="margin-top:20px;">
+                    For over two decades, MedCare has been the trusted healthcare partner for thousands of families. We combine cutting-edge technology with compassionate, patient-centered care.
+                </p>
+                <div class="about-features">
+                    <div class="about-feat">
+                        <div class="feat-icon">🔬</div>
+                        <h4>Advanced Diagnostics</h4>
+                        <p>Latest imaging and lab equipment</p>
+                    </div>
+                    <div class="about-feat">
+                        <div class="feat-icon">🕐</div>
+                        <h4>24/7 Emergency</h4>
+                        <p>Always available when you need us</p>
+                    </div>
+                    <div class="about-feat">
+                        <div class="feat-icon">🤝</div>
+                        <h4>Patient-Centered</h4>
+                        <p>Care tailored to every individual</p>
+                    </div>
+                    <div class="about-feat">
+                        <div class="feat-icon">🏆</div>
+                        <h4>Award Winning</h4>
+                        <p>Recognized for clinical excellence</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-visual">
+                <div class="about-visual-card">
+                    <h3>Our Success Metrics</h3>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>Patient Satisfaction</span><span>98%</span></div>
+                        <div class="progress-track"><div class="progress-fill" style="width:98%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>Treatment Success Rate</span><span>95%</span></div>
+                        <div class="progress-track"><div class="progress-fill" style="width:95%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>Emergency Response</span><span>92%</span></div>
+                        <div class="progress-track"><div class="progress-fill" style="width:92%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-label"><span>Follow-up Care</span><span>89%</span></div>
+                        <div class="progress-track"><div class="progress-fill" style="width:89%"></div></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="doctors" class="doctors">
-        <h2>Meet Our Experts</h2>
-        <div class="grid-container">
-            <div class="card">Dr. Smith</div>
-            <div class="card">Dr. Doe</div>
+    <!-- ── Services ──────────────────────────────────────── -->
+    <section id="services" class="services section centered">
+        <span class="section-label">What We Offer</span>
+        <h2 class="section-title">Comprehensive Medical Services</h2>
+        <span class="accent-bar"></span>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="svc-icon">❤️</div>
+                <h3>Cardiology</h3>
+                <p>Expert diagnosis and treatment of heart conditions using the latest cardiac imaging and interventional techniques.</p>
+                <span class="svc-tag">Learn More →</span>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon">🧠</div>
+                <h3>Neurology</h3>
+                <p>Comprehensive neurological care for conditions affecting the brain, spinal cord, and nervous system.</p>
+                <span class="svc-tag">Learn More →</span>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon">👶</div>
+                <h3>Pediatrics</h3>
+                <p>Gentle, specialized care for children from newborns to adolescents, with a focus on healthy development.</p>
+                <span class="svc-tag">Learn More →</span>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon">🦴</div>
+                <h3>Orthopedics</h3>
+                <p>Advanced treatment of bone, joint, and muscle disorders including minimally invasive surgery options.</p>
+                <span class="svc-tag">Learn More →</span>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon">👁️</div>
+                <h3>Ophthalmology</h3>
+                <p>Complete eye care from routine exams to complex surgical procedures for vision correction and eye disease.</p>
+                <span class="svc-tag">Learn More →</span>
+            </div>
+
+            <div class="service-card">
+                <div class="svc-icon">🩺</div>
+                <h3>General Medicine</h3>
+                <p>Preventive care, health screenings, and treatment of everyday illnesses for patients of all ages.</p>
+                <span class="svc-tag">Learn More →</span>
+            </div>
+
         </div>
     </section>
 
-    <section id="departments" class="departments">
-        <h2>Departments</h2>
-        <div class="flex-container">
-            <span>ICU</span><span>ER</span><span>OPD</span>
+    <!-- ── Doctors ────────────────────────────────────────── -->
+    <section id="doctors" class="doctors section centered">
+        <span class="section-label">Our Team</span>
+        <h2 class="section-title">Meet Our Expert Doctors</h2>
+        <span class="accent-bar"></span>
+
+        <div class="doctors-grid">
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">👩‍⚕️</div>
+                <h3>Dr. kirtika Niroula</h3>
+                <p class="doctor-spec">Cardiology</p>
+                <p>20+ years of expertise in interventional cardiology and complex cardiac procedures.</p>
+                <div class="doctor-meta">
+                    <span>⭐ 4.9</span>
+                    <span>📋 1,200+ cases</span>
+                </div>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">👩‍⚕️</div>
+                <h3>Dr. kirtika Niroula</h3>
+                <p class="doctor-spec">Neurology</p>
+                <p>Internationally trained neurologist specializing in stroke management and epilepsy care.</p>
+                <div class="doctor-meta">
+                    <span>⭐ 4.8</span>
+                    <span>📋 900+ cases</span>
+                </div>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">👩‍⚕️</div>
+                <h3>Dr. kirtika Niroula</h3>
+                <p class="doctor-spec">Pediatrics</p>
+                <p>Dedicated pediatrician with a warm approach to child health and developmental care.</p>
+                <div class="doctor-meta">
+                    <span>⭐ 5.0</span>
+                    <span>📋 2,000+ cases</span>
+                </div>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">👩‍⚕️</div>
+                <h3>Dr. kirtika Niroula</h3>
+                <p class="doctor-spec">Orthopedics</p>
+                <p>Expert in joint replacement and sports injury rehabilitation with minimal recovery time.</p>
+                <div class="doctor-meta">
+                    <span>⭐ 4.9</span>
+                    <span>📋 750+ cases</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="appointment" class="appointment">
-        <h2>Book an Appointment</h2>
-        <form class="appointment-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <button type="submit" class="btn">Submit</button>
-        </form>
+    <!-- ── Departments ────────────────────────────────────── -->
+    <section id="departments" class="departments section centered">
+        <span class="section-label">Navigate Our Clinic</span>
+        <h2 class="section-title">All Departments</h2>
+        <span class="accent-bar"></span>
+        <div class="dept-pills">
+            <span class="dept-pill">🏥 ICU</span>
+            <span class="dept-pill">🚑 Emergency Room</span>
+            <span class="dept-pill">🩺 Outpatient (OPD)</span>
+            <span class="dept-pill">💊 Pharmacy</span>
+            <span class="dept-pill">🔬 Laboratory</span>
+            <span class="dept-pill">🧬 Radiology</span>
+            <span class="dept-pill">🤱 Maternity</span>
+            <span class="dept-pill">🦷 Dental</span>
+            <span class="dept-pill">🧠 Psychiatry</span>
+        </div>
     </section>
 
-    <section id="records" class="records">
-        <h2>Patient Records Dashboard</h2>
-        <div class="table-responsive">
+    <!-- ── Appointment ────────────────────────────────────── -->
+    <section id="appointment" class="appointment section">
+        <div class="appt-inner">
+
+            <div>
+                <span class="section-label">Quick & Easy</span>
+                <h2 class="section-title">Book Your Appointment</h2>
+                <span class="accent-bar left"></span>
+                <p class="section-sub" style="margin-top:18px;">
+                    Skip the waiting room. Schedule your visit online in under a minute and see a doctor at your chosen time.
+                </p>
+                <div class="appt-perks">
+                    <div class="appt-perk">
+                        <div class="perk-icon">⚡</div>
+                        <div>
+                            <strong>Instant Confirmation</strong>
+                            <span>Receive your booking details via SMS and email right away.</span>
+                        </div>
+                    </div>
+                    <div class="appt-perk">
+                        <div class="perk-icon">🔔</div>
+                        <div>
+                            <strong>Reminder Alerts</strong>
+                            <span>We send reminders 24 hours and 1 hour before your appointment.</span>
+                        </div>
+                    </div>
+                    <div class="appt-perk">
+                        <div class="perk-icon">🔄</div>
+                        <div>
+                            <strong>Easy Rescheduling</strong>
+                            <span>Change or cancel your appointment with a single click, any time.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="appt-form">
+                <h3>Schedule a Visit</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" placeholder="John">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Doe">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="+977 98XXXXXXXX">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Department</label>
+                            <select>
+                                <option>Select Department</option>
+                                <option>Cardiology</option>
+                                <option>Neurology</option>
+                                <option>Pediatrics</option>
+                                <option>Orthopedics</option>
+                                <option>General Medicine</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Date</label>
+                            <input type="date">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Confirm Appointment →</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── Records ────────────────────────────────────────── -->
+    <section id="records" class="records section centered">
+        <span class="section-label">Patient Dashboard</span>
+        <h2 class="section-title">Recent Patient Records</h2>
+        <span class="accent-bar"></span>
+
+        <div class="table-wrap">
             <table>
                 <thead>
-                    <tr><th>ID</th><th>Patient</th><th>Date</th><th>Status</th></tr>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Date</th>
+                        <th>Doctor</th>
+                        <th>Status</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>#001</td><td>John Doe</td><td>2026-06-24</td><td>Completed</td></tr>
+                    <tr>
+                        <td>#MC-001</td>
+                        <td>John Doe</td>
+                        <td>Cardiology</td>
+                        <td>2026-06-24</td>
+                        <td>Dr. Kirtika</td>
+                        <td><span class="badge badge-green">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>#MC-002</td>
+                        <td>Priya Singh</td>
+                        <td>Neurology</td>
+                        <td>2026-06-24</td>
+                        <td>Dr. kirtika</td>
+                        <td><span class="badge badge-blue">In Progress</span></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </section>
 
-    <section id="testimonials" class="testimonials">
-        <h2>What Our Patients Say</h2>
-        <div class="grid-container">
-            <div class="card">"Great experience!" - Jane</div>
+    <!-- ── Testimonials ───────────────────────────────────── -->
+    <section id="testimonials" class="testimonials section centered">
+        <span class="section-label">Patient Stories</span>
+        <h2 class="section-title">What Our Patients Say</h2>
+        <span class="accent-bar"></span>
+
+        <div class="testi-grid">
+
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <blockquote>The care I received at MedCare was exceptional. The doctors took time to explain everything clearly and the staff was incredibly supportive throughout my treatment.</blockquote>
+                <div class="testi-author">
+                    <div class="author-avatar">JD</div>
+                    <div class="author-info">
+                        <strong>Jane Doe</strong>
+                        <span>Cardiology Patient</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <blockquote>From booking my appointment online to leaving the clinic, everything was smooth and professional. MedCare truly sets the standard for modern healthcare.</blockquote>
+                <div class="testi-author">
+                    <div class="author-avatar">RM</div>
+                    <div class="author-info">
+                        <strong>Rahul Mehta</strong>
+                        <span>Orthopedics Patient</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <blockquote>Dr. Okafor is wonderful with children. My daughter was at ease the entire visit. The pediatrics department at MedCare is truly world-class.</blockquote>
+                <div class="testi-author">
+                    <div class="author-avatar">SK</div>
+                    <div class="author-info">
+                        <strong>Sarah Kim</strong>
+                        <span>Pediatrics Parent</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
+    <!-- ── Contact ────────────────────────────────────────── -->
     <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <p>123 Health Ave, Medical City</p>
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">Contact Us</h2>
+        <span class="accent-bar"></span>
+        <div class="contact-cards">
+            <div class="contact-card">
+                <div class="cc-icon">📍</div>
+                <strong>Address</strong>
+                <p>123 Health Avenue<br>Medical City, Nepal</p>
+            </div>
+            <div class="contact-card">
+                <div class="cc-icon">📞</div>
+                <strong>Phone</strong>
+                <p>+977 01-4XXXXXX<br>Emergency: 102</p>
+            </div>
+            <div class="contact-card">
+                <div class="cc-icon">✉️</div>
+                <strong>Email</strong>
+                <p>hello@medcare.com<br>support@medcare.com</p>
+            </div>
+            <div class="contact-card">
+                <div class="cc-icon">🕐</div>
+                <strong>Hours</strong>
+                <p>Mon–Sat: 8AM–8PM<br>Emergency: 24/7</p>
+            </div>
+        </div>
     </section>
 
+    <!-- ── Footer ─────────────────────────────────────────── -->
     <footer class="footer">
-        <p>&copy; 2026 MedCare. All rights reserved.</p>
+        <p>&copy; 2026 <span>MedCare</span>. All rights reserved. Built with ❤️ for better health.</p>
     </footer>
 
 </body>
