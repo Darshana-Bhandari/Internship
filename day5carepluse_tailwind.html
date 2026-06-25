@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarePlus Clinic Management System</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 font-[Inter] text-slate-800">
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center justify-between py-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-sky-500 to-emerald-500 text-white flex items-center justify-center font-bold">C+</div>
+        <h1 class="font-extrabold text-xl">CarePlus CMS</h1>
+      </div>
+      <nav class="hidden md:flex gap-8">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#doctors">Doctors</a>
+        <a href="#patients">Patients</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#patients" class="bg-sky-500 text-white px-5 py-2 rounded-lg">Register</a>
+    </div>
+  </div>
+</header>
+
+<section id="home" class="bg-gradient-to-br from-sky-50 to-emerald-50">
+<div class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-10 items-center">
+<div>
+<span class="bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm">Smart Healthcare Management</span>
+<h2 class="text-5xl font-black mt-6 mb-4">Complete Clinic <span class="text-sky-500">Management Solution</span></h2>
+<p class="text-slate-600 mb-8">Manage patients, appointments, doctors, billing and records from one platform.</p>
+<div class="flex gap-4">
+<a class="bg-sky-500 text-white px-6 py-3 rounded-xl">Register Patient</a>
+<a class="border border-sky-500 text-sky-500 px-6 py-3 rounded-xl">Book Appointment</a>
+</div>
+</div>
+<div class="bg-white rounded-3xl shadow-xl p-6">
+<h3 class="font-bold text-lg mb-4">Dashboard Overview</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-slate-100 p-4 rounded-xl"><div class="text-3xl font-bold text-sky-500">38</div><div>Appointments</div></div>
+<div class="bg-slate-100 p-4 rounded-xl"><div class="text-3xl font-bold text-sky-500">12</div><div>Doctors</div></div>
+<div class="bg-slate-100 p-4 rounded-xl"><div class="text-3xl font-bold text-sky-500">5</div><div>Rooms</div></div>
+<div class="bg-slate-100 p-4 rounded-xl"><div class="text-3xl font-bold text-emerald-500">✓</div><div>Healthy</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="services" class="py-20">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-12">Services</h2>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="bg-white p-6 rounded-2xl shadow">General Consultation</div>
+<div class="bg-white p-6 rounded-2xl shadow">Dental Care</div>
+<div class="bg-white p-6 rounded-2xl shadow">Pediatrics</div>
+<div class="bg-white p-6 rounded-2xl shadow">Laboratory Testing</div>
+<div class="bg-white p-6 rounded-2xl shadow">Vaccination</div>
+<div class="bg-white p-6 rounded-2xl shadow">Emergency Care</div>
+</div>
+</div>
+</section>
+
+<section id="doctors" class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-10">Doctors</h2>
+<div class="overflow-x-auto">
+<table class="w-full border">
+<thead class="bg-sky-500 text-white">
+<tr><th class="p-4">ID</th><th>Name</th><th>Department</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr class="border-b"><td class="p-4">DR001</td><td>Dr. Ananya Singh</td><td>General Medicine</td><td>Available</td></tr>
+<tr><td class="p-4">DR002</td><td>Dr. Rahul Kapoor</td><td>Dental</td><td>Available</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section id="patients" class="py-20 bg-sky-50">
+<div class="max-w-4xl mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-10">Patient Registration</h2>
+<form class="bg-white p-8 rounded-3xl shadow grid md:grid-cols-2 gap-4">
+<input class="border p-3 rounded-xl" placeholder="Full Name">
+<input class="border p-3 rounded-xl" placeholder="Email">
+<input class="border p-3 rounded-xl" placeholder="Phone">
+<input class="border p-3 rounded-xl" placeholder="Age">
+<textarea class="border p-3 rounded-xl md:col-span-2" placeholder="Symptoms"></textarea>
+<button class="bg-sky-500 text-white p-3 rounded-xl md:col-span-2">Submit Registration</button>
+</form>
+</div>
+</section>
+
+<section id="contact" class="py-20">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-10">Contact</h2>
+<div class="bg-white rounded-3xl shadow p-8 text-center">
+<p>CarePlus Medical Centre, Kathmandu, Nepal</p>
+<p>info@careplus-cms.np</p>
+<p>+977 01-4567890</p>
+</div>
+</div>
+</section>
+
+<footer class="bg-slate-900 text-slate-300 py-8 text-center">
+© 2026 CarePlus Clinic Management System
+</footer>
+
+</body>
+</html>
