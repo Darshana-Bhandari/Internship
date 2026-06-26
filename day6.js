@@ -66,3 +66,11 @@ else{
     console.log("no you are not eligbile for the voting");
 }
 
+// else if 
+let mern=60;
+if(mern>=90){
+    console.log("you are getting A+")
+}
+else if (mern>=80){
+    console.log("you are getting A")
+}
