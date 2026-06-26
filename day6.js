@@ -21,4 +21,8 @@ let x = 4;
 let y = 6;
 let sum = x + y;
 
-console.log(sum);
+console.log(sum); //addition 
+
+let r=14;
+let b=10;
+console.log(r-b); //subtraction
