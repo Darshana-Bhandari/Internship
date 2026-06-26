@@ -46,7 +46,7 @@ console.log(age>=45); //checking greater than equal to
 console.log(age<=10); //checking less than equal to
 
 // logic operators
-//%%
+//&&
 let ag=22;
 let citizen=true;
 console.log(ag>=18 && citizen==true);
