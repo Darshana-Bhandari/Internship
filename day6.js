@@ -30,3 +30,11 @@ console.log(r*b); //multiplication
 console.log(r/b) //division
 console.log(r%b);
 
+// comparision operators
+// == equale to
+// != not equal to
+// > greater than
+// < less than
+// >= greater than equal to
+// <= less then equal to
+// == Strict equal to 
