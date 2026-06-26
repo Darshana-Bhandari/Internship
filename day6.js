@@ -42,4 +42,6 @@ console.log(r%b);
 let age =22;
 console.log(age==22); //checking equal to
 console.log(age!=22); //checking not  equal to
-console.log(age>=45);
+console.log(age>=45); //checking greater than equal to
+console.log
+
