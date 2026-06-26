@@ -74,3 +74,6 @@ if(mern>=90){
 else if (mern>=80){
     console.log("you are getting A")
 }
+else{
+    console.log("you are average student")
+}
