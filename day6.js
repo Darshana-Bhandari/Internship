@@ -60,9 +60,14 @@ let citizen=false;
 console.log(B>=18 || citizen==true);
 
 //assigment operators
-let a=5;
-a+=20;
-console.log(a);
+let D=5;
+E+=20;
+console.log(D);
+
+//assigment operators
+let E=5;
+E+=20;
+console.log(E);
 
 
 
