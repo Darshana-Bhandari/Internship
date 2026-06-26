@@ -55,4 +55,9 @@ let a=22;
 let citizen=false;
 console.log(a>=18 && citizen==true);
 
+let B=22;
+let citizen=false;
+console.log(B>=18 || citizen==true);
+
+
 
