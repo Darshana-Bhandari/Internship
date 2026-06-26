@@ -51,3 +51,18 @@ console.log(D);
 let E = 5;
 E += 20;
 console.log(E);
+
+
+//conditions
+let age44=22;
+
+//voting eligibility
+
+if(age44>=18){
+    console.log("yes you are eligbile for the voting");
+
+}
+else{
+    console.log("no you are not eligbile for the voting");
+}
+
