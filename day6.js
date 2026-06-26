@@ -38,3 +38,7 @@ console.log(r%b);
 // >= greater than equal to
 // <= less then equal to
 // == Strict equal to 
+
+let age =22;
+console.log(age==22);
+console.log(age!=34);
