@@ -40,5 +40,5 @@ console.log(r%b);
 // == Strict equal to 
 
 let age =22;
-console.log(age==22);
-console.log(age!=34);
+console.log(age==22); //checking equal to
+console.log(age!=34); //
