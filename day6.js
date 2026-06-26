@@ -26,3 +26,4 @@ console.log(sum); //addition
 let r=14;
 let b=10;
 console.log(r-b); //subtraction
+console.log(r*b); //multiplication
