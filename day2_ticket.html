@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Movie Ticket Booking System</title>
+</head>
+<body>
+    <h1>Online Movie Ticket Booking System</h1>
+    
+    <form>
+   
+        <label for="fullname">Full Name:</label>
+        <input type="text" name="fullname" required>
+        <br><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" name="email" required>
+        <br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" name="phone" required>
+        <br><br>
+
+        <label for="movie">Select Movie:</label>
+        <select id="movie" name="movie" required>
+            <option value="">Select a Movie</option>
+            <option value="movie1">The Cinematic Adventure</option>
+            <option value="movie2">Action Unleashed</option>
+            <option value="movie3">Love in the City</option>
+            <option value="movie4">Mystery Unfolded</option>
+            <option value="movie5">Fantasy Quest</option>
+        </select>
+        <br><br>
+
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" name="date" required>
+        <br><br>
+
+    
+        <label for="showtime">Select Show Time:</label>
+        <select id="showtime" name="showtime" required>
+            <option value="">Select Show Time</option>
+            <option value="09:00">09:00 AM</option>
+            <option value="12:30">12:30 PM</option>
+            <option value="15:30">03:30 PM</option>
+            <option value="18:30">06:30 PM</option>
+            <option value="21:00">09:00 PM</option>
+        </select>
+        <br><br>
+
+      
+        <label for="tickets">Number of Tickets:</label>
+        <input type="number"  name="tickets" min="1" max="10" required>
+        <br><br>
+
+            <legend>Seat Type:</legend>
+            <label>
+                <input type="radio" name="seattype" value="regular" required>
+                Regular
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="seattype" value="vip">
+                VIP
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="seattype" value="premium">
+                Premium
+            </label>
+        <br>
+        <hr>
+            <legend>Food Options:</legend>
+            <label>
+                <input type="checkbox" name="food" value="popcorn">
+                Popcorn
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="food" value="colddrink">
+                Cold Drink
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="food" value="burger">
+                Burger
+            </label>
+      
+        <br>
+        <hr>
+        <label for="specialrequest">Special Request:</label>
+        <br>
+        <textarea  name="specialrequest" ></textarea>
+        <br><br>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+</body>
+</html>
