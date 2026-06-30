@@ -122,3 +122,10 @@ student.address = "Itahari";
 
 // Display updated object
 console.log(student);
+
+
+// Array
+// array vaneko multiple value single variable ma store garna use garinxa
+
+let fruits=["Apple", "Mango", "Orange", "Banana", "Graps"] //[0,1,2,3]
+console.log(fruits[0])
