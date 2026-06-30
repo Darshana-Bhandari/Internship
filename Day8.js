@@ -68,21 +68,26 @@ const sayHello = function () {
 sayHello();
 
 
-/// scope
-// varibale lai access garxa ke gardina
-//global scope
+// SCOPE
+// Scope determines where a variable can be accessed.
+// Global Scope
 
-let name="Darshana"
-function myname(){
-    console.log(name)
+let name = "Darshana";
+
+function myName() {
+    console.log(name);
 }
 
-myname();
+myName();
 console.log(name);
-function myname1(){
-let name1="Darshana"
-console.log(name1)
+
+
+// Local Scope
+
+function myName1() {
+    let name1 = "Darshana";
+    console.log(name1);
 }
 
-myname()
-console.log(name1)
+myName1();
+// console.log(name1); // Error: name1 is not defined
