@@ -91,3 +91,15 @@ function myName1() {
 
 myName1();
 // console.log(name1); // Error: name1 is not defined
+
+
+
+//object
+//object vaneko collection of related data stored garnu
+let student={
+     name:"Darshana",
+     age:"19",
+     faculty:"BIT",
+     college:"Itharai international collage"
+}
+console.log(student)
