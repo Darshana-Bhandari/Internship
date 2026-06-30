@@ -96,7 +96,7 @@ myName1();
 
 // OBJECT
 
-// An object is a collection of related data stored as key-value pairs.
+// An object stores related data in key-value pairs.
 
 let student = {
     name: "Darshana",
@@ -105,10 +105,20 @@ let student = {
     college: "Itahari International College"
 };
 
+// Display the entire object
 console.log(student);
 
-// Accessing object properties
-console.log(student.name);
-console.log(student.age);
-console.log(student.faculty);
-console.log(student.college);
+// Access object properties
+console.log("Name:", student.name);
+console.log("Age:", student.age);
+console.log("Faculty:", student.faculty);
+console.log("College:", student.college);
+
+// Update a property
+student.age = 20;
+
+// Add a new property
+student.address = "Itahari";
+
+// Display updated object
+console.log(student);
