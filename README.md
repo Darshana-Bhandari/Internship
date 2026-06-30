@@ -6,7 +6,7 @@ This repository documents my day-by-day progress during my MERN Stack internship
 
 ## 📁 Repository Structure
 
-```
+```text
 Internship/
 ├── darsu.html                   # Day 1  — Personal introduction page
 ├── day2.html                    # Day 2  — Core HTML elements practice
@@ -22,6 +22,7 @@ Internship/
 ├── day7_task.html               # Day 7  — HTML shell for task
 ├── day7_task.js                 # Day 7  — Grade calculator using switch (task)
 ├── Day7.js                      # Day 7  — Switch statements, loops & sum of numbers
+├── day8.js                      # Day 8  — Functions, Scope, Objects & Arrays
 ├── package.json                 # Node.js project setup
 ├── package-lock.json            # Node.js dependency lock file
 └── internship/                  # Additional internship files/resources
@@ -29,192 +30,332 @@ Internship/
 
 ---
 
-##  Daily Progress
+## 📅 Daily Progress
 
 ### Day 1 — `darsu.html` · *Introduction to HTML*
+
 Built a personal introduction page covering:
-- Basic HTML document structure (`<!DOCTYPE>`, `<head>`, `<body>`)
-- Headings, paragraphs, and images
-- Unordered lists for skills
-- Contact information section
+
+* Basic HTML document structure (`<!DOCTYPE>`, `<head>`, `<body>`)
+* Headings, paragraphs, and images
+* Unordered lists for skills
+* Contact information section
 
 ---
 
 ### Day 2 — `day2.html` · *HTML Core Elements*
-Practiced fundamental HTML tags:
-- All heading levels (`<h1>` through `<h6>`)
-- Paragraphs, images, and anchor links
-- Ordered and unordered lists
-- HTML forms with inputs (text, email, password, phone, radio, select, checkbox)
-- Form submission button
 
-**Day 2 Task — `day2_ticket.html` · *Movie Ticket Booking Form***  
-Built a complete Online Movie Ticket Booking System form with:
-- Personal details (name, email, phone)
-- Movie, date, and show time selection dropdowns
-- Ticket quantity input
-- Seat type selection (Regular / VIP / Premium) via radio buttons
-- Food add-ons (Popcorn, Cold Drink, Burger) via checkboxes
-- Special request textarea
-- Submit and Reset buttons
+Practiced fundamental HTML tags:
+
+* All heading levels (`<h1>` through `<h6>`)
+* Paragraphs, images, and anchor links
+* Ordered and unordered lists
+* HTML forms with inputs (text, email, password, phone, radio, select, checkbox)
+* Form submission button
+
+**Day 2 Task — `day2_ticket.html` · Movie Ticket Booking Form**
+
+* Personal details (name, email, phone)
+* Movie, date, and show time selection dropdowns
+* Ticket quantity input
+* Seat type selection (Regular / VIP / Premium)
+* Food add-ons using checkboxes
+* Special request textarea
+* Submit and Reset buttons
 
 ---
 
 ### Day 3 — `day3.html` · *Semantic HTML & CSS Introduction*
+
 Introduced semantic HTML and CSS styling:
-- Semantic elements: `<header>`, `<nav>`, `<table>`
-- Internal CSS styling (`<style>` tag in `<head>`)
-- Inline CSS on individual elements
-- External CSS link (`<link rel="stylesheet">`)
-- HTML tables with `<thead>`, `<th>`, `<tr>`, `<td>`
-- Navigation bar with anchor links
+
+* Semantic elements: `<header>`, `<nav>`, `<table>`
+* Internal CSS styling
+* Inline CSS
+* External CSS files
+* HTML tables with headings and rows
+* Navigation bar with anchor links
 
 ---
 
 ### Day 4 — `day4.html` + `day4.css` · *Full Healthcare Website — MedCare*
-Built a complete, multi-section healthcare website with external CSS:
 
-**Sections covered:**
-- **Header** — Sticky navbar with logo and navigation links
-- **Hero** — Full-width landing section with stats (15K+ patients, 40+ doctors, 98% satisfaction)
-- **About** — Company history with animated progress bars
-- **Services** — 6-card grid (Cardiology, Neurology, Pediatrics, Orthopedics, Ophthalmology, General Medicine)
-- **Doctors** — Doctor profile cards with ratings and case counts
-- **Departments** — Department pills/badges (ICU, Emergency, OPD, Pharmacy, etc.)
-- **Appointment Booking** — Two-column layout with perks and a booking form
-- **Patient Records** — HTML table with status badges
-- **Testimonials** — Patient review cards with star ratings
-- **Contact** — Contact info cards (address, phone, email, hours)
-- **Footer** — Branded footer
+Built a complete healthcare website using HTML and CSS.
 
-**CSS skills used:** Flexbox, Grid layout, CSS variables, hover effects, progress bars, badge components, responsive design.
+**Sections Covered**
+
+* Header with navigation
+* Hero section
+* About section
+* Services section
+* Doctors section
+* Departments section
+* Appointment booking form
+* Patient records table
+* Testimonials
+* Contact section
+* Footer
+
+**CSS Skills Used**
+
+* Flexbox
+* CSS Grid
+* Responsive layouts
+* Hover effects
+* Progress bars
+* Badge components
+* CSS variables
 
 ---
 
 ### Day 5 — `day5carepluse_tailwind.html` · *CarePlus CMS with Tailwind CSS*
-Rebuilt a clinic management system UI using **Tailwind CSS** (utility-first framework):
 
-**Features:**
-- Sticky header with logo and responsive navigation
-- Hero section with dashboard overview stats (38 appointments, 12 doctors)
-- Services grid (General Consultation, Dental, Pediatrics, Lab, Vaccination, Emergency)
-- Doctors table with department and availability status
-- Patient Registration form with a clean grid layout
-- Contact section and footer
+Built a clinic management system interface using Tailwind CSS.
 
-**New skills learned:** Tailwind CSS utility classes, CDN-based Tailwind setup, responsive grid with `md:grid-cols-*`, backdrop blur effects, gradient backgrounds.
+**Features**
+
+* Responsive navigation bar
+* Dashboard overview cards
+* Services section
+* Doctors table
+* Patient registration form
+* Contact section
+* Footer
+
+**Skills Learned**
+
+* Tailwind CSS utility classes
+* Responsive grid system
+* Gradient backgrounds
+* Backdrop blur effects
+* Utility-first styling approach
 
 ---
 
 ### Day 6 — `day6.js` · *JavaScript Fundamentals*
-Started JavaScript! Covered core language concepts:
 
-**Variables & Data Types**
-- `let` (reassignable) vs `const` (fixed) declarations
-- Data types: `number`, `string`, `boolean`, `undefined`, `null`
-- Using `typeof` to check variable types
+#### Variables & Data Types
 
-**Operators**
-- Arithmetic: `+`, `-`, `*`, `/`, `%`
-- Comparison: `==`, `!=`, `>=`, `<=`
-- Logical: `&&` (AND), `||` (OR)
-- Assignment / compound operators: `+=`, `-=`
+* `let` and `const`
+* String, Number, Boolean, Undefined, Null
+* `typeof` operator
 
-**Conditionals**
-- `if / else` — voting eligibility checker (age >= 18)
-- `if / else if / else` — grade classifier based on marks
+#### Operators
 
-**Node.js Setup**
-- Initialized a Node.js project (`package.json`, `package-lock.json`)
-- Running JavaScript outside the browser with Node.js
+* Arithmetic Operators
+* Comparison Operators
+* Logical Operators
+* Assignment Operators
+
+#### Conditionals
+
+* Voting eligibility checker
+* Grade checking using `if...else`
+
+#### Node.js Setup
+
+* Initialized Node.js project
+* Created `package.json`
+* Executed JavaScript using Node.js
 
 ---
 
 ### Day 7 — `Day7.js` + `day7_task.js` · *Switch Statements & Loops*
-Continued JavaScript with control flow and loops:
 
-**Switch Statements (`Day7.js`)**
-- Day-of-week finder using `switch(day)` with `prompt()` input
-- Calculator using switch — Addition, Subtraction, Multiplication, Division
-- Mark-to-grade converter using `switch(Math.floor(marks/10))`
+#### Switch Statements
 
-**Loops (`Day7.js`)**
-- `for` loop — printed a message 100 times
-- Sum of natural numbers up to N using a `for` loop (e.g., sum up to 77)
+* Day finder using `switch`
+* Calculator using `switch`
+* Grade calculator using `switch(Math.floor(marks/10))`
 
-**Day 7 Task — `day7_task.js` · *Grade Calculator with Switch(true)***
-Built an interactive grade calculator using the `switch(true)` pattern with `prompt()`:
-- Grade A+ → marks >= 90
-- Grade A  → marks >= 80
-- Grade B  → marks >= 70
-- Grade C  → marks >= 60
-- Grade D  → marks >= 50
-- Grade F  → below 50
+#### Loops
+
+* `for` loop practice
+* Printed messages multiple times
+* Calculated sum of natural numbers
+
+#### Day 7 Task — Grade Calculator
+
+Built an interactive grade calculator using `switch(true)`:
+
+* A+ → 90–100
+* A → 80–89
+* B → 70–79
+* C → 60–69
+* D → 50–59
+* F → Below 50
+
+---
+
+### Day 8 — `day8.js` · *Functions, Scope, Objects & Arrays*
+
+#### While Loop
+
+* Printed numbers from 1 to 10 using `while`
+* Learned loop initialization, condition, and increment
+
+#### Do While Loop
+
+* Printed numbers from 12 down to 10
+* Learned that `do...while` executes at least once before checking the condition
+
+#### Functions
+
+* Created reusable functions with parameters
+* Built a `sum(a, b)` function
+* Returned values using `return`
+* Stored results in variables and displayed them
+
+#### Grade Checking Function
+
+* Created a `gradeCheck(marks)` function using `if...else if...else`
+* Assigned grades based on marks:
+
+  * A+ → 90–100
+  * A → 80–89
+  * B → 70–79
+  * C → 60–69
+  * D → 50–59
+  * F → Below 50
+* Practiced function calls with different inputs
+
+#### Function Expression
+
+* Learned function expressions
+* Stored a function inside a variable
+* Executed the function using the variable name
+
+#### Scope
+
+* Learned Global Scope
+* Learned Local Scope
+* Accessed global variables inside functions
+* Understood why local variables cannot be accessed outside their function
+
+#### Objects
+
+Created multiple JavaScript objects:
+
+* Student object
+* Vegetable object
+* Fruit object
+
+Practiced:
+
+* Creating objects
+* Accessing object properties
+* Updating existing properties
+* Adding new properties dynamically
+
+#### Arrays
+
+Learned how arrays store multiple values.
+
+Practiced:
+
+* Accessing array elements by index
+* `push()` method
+* `pop()` method
+* `shift()` method
+* `unshift()` method
+* `length` property
 
 ---
 
 ## 🛠️ Technologies Used
 
-| Technology | Usage |
-|---|---|
-| HTML5 | Page structure and semantic markup |
-| CSS3 | Styling, Flexbox, Grid, animations |
-| Tailwind CSS | Utility-first styling (Day 5) |
-| JavaScript (ES6+) | Variables, operators, conditionals, loops (Day 6–7) |
-| Node.js | Running JavaScript in the terminal (Day 6+) |
-| Google Fonts | Typography (Inter font family) |
+| Technology        | Usage                                                |
+| ----------------- | ---------------------------------------------------- |
+| HTML5             | Structure and semantic markup                        |
+| CSS3              | Styling, layouts, and responsiveness                 |
+| Tailwind CSS      | Utility-first CSS framework                          |
+| JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects |
+| Node.js           | Running JavaScript in terminal                       |
+| Google Fonts      | Typography                                           |
 
 ---
 
 ## 🚀 How to View
 
-Since these are plain HTML/CSS/JS files, no installation needed for most files:
+Clone the repository:
 
 ```bash
 git clone https://github.com/Darshana-Bhandari/Internship.git
 cd Internship
 ```
 
-- Open any `.html` file directly in your browser.
-- For `day4.html`, keep `day4.css` in the same folder.
-- For JS files, run in terminal with Node.js:
-  ```bash
-  node day6.js
-  node Day7.js
-  ```
+Open any `.html` file directly in your browser.
+
+For JavaScript files:
+
+```bash
+node day6.js
+node Day7.js
+node day8.js
+```
 
 ---
 
 ## 📈 Learning Journey
 
-```
+```text
 Day 1 → HTML basics & personal page
 Day 2 → Forms, lists, links & a real booking system
-Day 3 → Semantic HTML, tables & CSS intro
-Day 4 → Full multi-section website with external CSS
+Day 3 → Semantic HTML, tables & CSS introduction
+Day 4 → Full healthcare website with HTML & CSS
 Day 5 → Tailwind CSS framework
-Day 6 → JavaScript: variables, data types, operators, conditionals + Node.js setup
-Day 7 → JavaScript: switch statements, loops & grade calculator task
-Day 8+ → (Coming soon...)
+Day 6 → JavaScript fundamentals & Node.js setup
+Day 7 → Switch statements, loops & grade calculator
+Day 8 → Functions, scope, objects, arrays & while loops
+Day 9+ → Coming soon...
 ```
 
 ---
 
 ## 🎯 Internship Goals
 
-- [x] Learn core HTML structure and tags
-- [x] Build forms and interactive UI components
-- [x] Apply CSS styling (inline, internal, external)
-- [x] Use a CSS framework (Tailwind CSS)
-- [x] Learn JavaScript fundamentals (variables, operators, conditionals)
-- [x] Learn JavaScript control flow (switch, loops)
-- [x] Set up Node.js environment
-- [ ] JavaScript functions, arrays & objects
-- [ ] DOM manipulation
-- [ ] Build with React.js
-- [ ] Connect to a backend (Node.js + Express)
-- [ ] Work with MongoDB
+* [x] Learn core HTML structure and tags
+* [x] Build forms and interactive UI components
+* [x] Apply CSS styling (inline, internal, external)
+* [x] Use Tailwind CSS
+* [x] Learn JavaScript fundamentals
+* [x] Learn JavaScript control flow (switch, loops)
+* [x] Set up Node.js environment
+* [x] Learn JavaScript functions
+* [x] Learn JavaScript arrays
+* [x] Learn JavaScript objects
+* [x] Understand variable scope
+* [ ] DOM Manipulation
+* [ ] ES6 Advanced Concepts
+* [ ] React.js
+* [ ] Express.js
+* [ ] MongoDB
+* [ ] Full MERN Stack Projects
 
 ---
 
-*This repository is actively updated as the internship progresses. ⭐ Star it to follow along!*
+## ⭐ Progress Status
+
+**Current Progress:** Day 8 Completed
+
+### Skills Learned So Far
+
+* HTML5
+* CSS3
+* Tailwind CSS
+* JavaScript Basics
+* Operators
+* Conditionals
+* Switch Statements
+* Loops
+* Functions
+* Scope
+* Objects
+* Arrays
+* Node.js Fundamentals
+
+---
+
+*This repository is actively updated as my MERN Stack internship progresses. Every commit reflects a new learning milestone and practical implementation*
+
+* Thank you
