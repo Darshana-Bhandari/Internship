@@ -94,12 +94,21 @@ myName1();
 
 
 
-//object
-//object vaneko collection of related data stored garnu
-let student={
-     name:"Darshana",
-     age:"19",
-     faculty:"BIT",
-     college:"Itharai international collage"
-}
-console.log(student)
+// OBJECT
+
+// An object is a collection of related data stored as key-value pairs.
+
+let student = {
+    name: "Darshana",
+    age: 19,
+    faculty: "BIT",
+    college: "Itahari International College"
+};
+
+console.log(student);
+
+// Accessing object properties
+console.log(student.name);
+console.log(student.age);
+console.log(student.faculty);
+console.log(student.college);
