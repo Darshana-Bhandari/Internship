@@ -124,8 +124,45 @@ student.address = "Itahari";
 console.log(student);
 
 
-// Array
-// array vaneko multiple value single variable ma store garna use garinxa
 
-let fruits=["Apple", "Mango", "Orange", "Banana", "Graps"] //[0,1,2,3]
-console.log(fruits[0])
+// ARRAY
+// An array is used to store multiple values in a single variable.
+
+let fruits = ["Apple", "Mango", "Orange", "Banana", "Grapes"]; // It works in [0,1,2,3,4] formate
+
+// Accessing array elements
+console.log(fruits[0]);
+console.log(fruits[1]);
+
+
+// PUSH METHOD
+// Adds a new element at the end of the array
+
+fruits.push("Papaya");
+console.log(fruits);
+
+
+// POP METHOD
+// Removes the last element from the array
+
+fruits.pop();
+console.log(fruits);
+
+
+// SHIFT METHOD
+// Removes the first element from the array
+
+fruits.shift();
+console.log(fruits);
+
+
+// UNSHIFT METHOD
+// Adds a new element at the beginning of the array
+
+fruits.unshift("Kiwi");
+console.log(fruits);
+
+// LENGTH PROPERTY
+// Returns the total number of elements in the array
+
+console.log(fruits.length);
