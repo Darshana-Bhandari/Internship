@@ -66,3 +66,23 @@ const sayHello = function () {
 };
 
 sayHello();
+
+
+/// scope
+// varibale lai access garxa ke gardina
+//global scope
+
+let name="Darshana"
+function myname(){
+    console.log(name)
+}
+
+myname();
+console.log(name);
+function myname1(){
+let name1="Darshana"
+console.log(name1)
+}
+
+myname()
+console.log(name1)
