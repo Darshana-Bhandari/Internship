@@ -24,6 +24,7 @@ Internship/
 ├── Day7.js                      # Day 7  — Switch statements, loops & sum of numbers
 ├── day8.js                      # Day 8  — Functions, Scope, Objects & Arrays
 ├── day9.js                      # Day 9  — Advanced Array Methods
+├── day9_calculator.html         # Day 9  — Calculator UI built with Tailwind CSS (task)
 ├── package.json                 # Node.js project setup
 ├── package-lock.json            # Node.js dependency lock file
 └── internship/                  # Additional internship files/resources
@@ -258,7 +259,7 @@ Practiced:
 
 ---
 
-### Day 9 — `day9.js` · *Advanced Array Methods*
+### Day 9 — `day9.js` + `day9_calculator.html` · *Advanced Array Methods & Calculator UI*
 
 Expanded knowledge of JavaScript arrays by learning powerful built-in array methods used for searching, modifying, transforming, and processing data.
 
@@ -318,6 +319,20 @@ Built a program using `filter()` to:
 * Return a new array without modifying the original array
 * Practice callback functions and conditional filtering
 
+#### Day 9 Task — `day9_calculator.html` · Calculator UI (Tailwind CSS)
+
+Built the front-end of a calculator app using Tailwind CSS:
+
+* Glassmorphism design with backdrop blur and gradient background
+* Animated floating background shapes
+* Live digital clock in the header
+* Full calculator button layout (digits, operators, AC, backspace, %, decimal, equals)
+* Hover and press micro-interactions on buttons (`btn-press` class)
+* Google Fonts (Poppins) integration
+* Display screen with a history line and main input readout
+
+**Note:** This task currently covers only the UI/markup and the live clock script. The actual calculator logic (handling button clicks, performing calculations, and updating the display) is still to be implemented using JavaScript.
+
 ---
 
 ## 🛠️ Technologies Used
@@ -366,7 +381,7 @@ Day 5 → Tailwind CSS framework
 Day 6 → JavaScript fundamentals & Node.js setup
 Day 7 → Switch statements, loops & grade calculator
 Day 8 → Functions, scope, objects, arrays & while loops
-Day 9 → Advanced array methods (map, filter, reduce, splice, sort)
+Day 9 → Advanced array methods (map, filter, reduce, splice, sort) + Calculator UI with Tailwind CSS
 Day 10+ → Coming soon...
 ```
 
