@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Calculator UI</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700">
+
+    <!-- Calculator -->
+    <div class="w-[360px] bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-6">
+
+        <!-- Heading -->
+        <h1 class="text-3xl font-bold text-white text-center mb-6">
+            Calculator
+        </h1>
+
+        <!-- Display -->
+        <div class="mb-6">
+            <input
+                type="text"
+                placeholder="0"
+                readonly
+                class="w-full h-20 bg-slate-900 text-white text-right text-4xl rounded-2xl px-5 outline-none shadow-inner placeholder:text-slate-400"
+            >
+        </div>
+
+        <!-- Buttons -->
+        <div class="grid grid-cols-4 gap-4">
+
+            <!-- Row 1 -->
+            <button class="h-16 rounded-xl bg-red-500 text-white text-xl font-semibold hover:bg-red-600 transition">
+                AC
+            </button>
+
+            <button class="h-16 rounded-xl bg-yellow-500 text-white text-xl font-semibold hover:bg-yellow-600 transition">
+                ⌫
+            </button>
+
+            <button class="h-16 rounded-xl bg-indigo-500 text-white text-xl font-semibold hover:bg-indigo-600 transition">
+                %
+            </button>
+
+            <button class="h-16 rounded-xl bg-orange-500 text-white text-xl font-semibold hover:bg-orange-600 transition">
+                ÷
+            </button>
+
+            <!-- Row 2 -->
+            <button class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">7</button>
+            <button class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">8</button>
+            <button class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">9</button>
+            <button class="h-16 rounded-xl bg-orange-500 text-white text-xl hover:bg-orange-600 transition">×</button>
+
+            <!-- Row 3 -->
+            <button class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">4</button>
+            <button class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">5</button>
+            <button class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">6</button>
+            <button class="h-16 rounded-xl bg-orange-500 text-white text-xl hover:bg-orange-600 transition">−</button>
+
+            <!-- Row 4 -->
+            <button class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">1</button>
+            <button class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">2</button>
+            <button class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">3</button>
+            <button class="h-16 rounded-xl bg-orange-500 text-white text-xl hover:bg-orange-600 transition">+</button>
+
+            <!-- Row 5 -->
+            <button class="col-span-2 h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">
+                0
+            </button>
+
+            <button class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">
+                .
+            </button>
+
+            <button class="h-16 rounded-xl bg-green-500 text-white text-xl font-bold hover:bg-green-600 transition">
+                =
+            </button>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
