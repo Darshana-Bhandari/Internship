@@ -39,4 +39,29 @@ console.log(fruits);
 // Adding elements using splice()
 // splice(startIndex, deleteCount, newElement1, newElement2)
 fruits.splice(1, 0, "Banana", "Orange");
+console.log(fruits)9;
+
+
+// for each loop method
+fruits.forEach(function(fruits,index){
+    console.log("the fruit is"+fruits+)
+})
+
+// map() Array Method
+// map() loops through each element of an array and returns a new array
+// without modifying the original array
+
+let fruits = ["Apple", "Mango", "Grapes"];
+
+let upper = fruits.map(function (fruit) {
+    console.log("The fruit is: " + fruit);
+
+    // Convert each fruit name to uppercase
+    return fruit.toUpperCase();
+});
+
+// Display the new array with all elements in uppercase
+console.log(upper);
+
+// Original array remains unchanged
 console.log(fruits);
