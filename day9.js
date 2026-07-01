@@ -80,3 +80,16 @@ console.log(evenNumbers);
 // Original array remains unchanged
 console.log(numbers);
 
+
+
+// reduce() method
+// reduce() helps us reduce an array to a single value
+
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+let sum = numbers.reduce(function (num1, num2) {
+    return num1 + num2;
+});
+
+console.log(sum);
+
