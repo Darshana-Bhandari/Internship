@@ -33,3 +33,38 @@ fruit.color = "Green";
 fruit.price = 120;
 
 console.log(fruit);
+
+
+// Object
+
+let employee = {
+    id: 101,
+    name: "Darshana",
+    department: "IT",
+    salary: 50000
+};
+
+// Display original object
+console.log("Original Object:");
+console.log(employee);
+
+// Add new property
+employee.address = "Kathmandu";
+
+console.log("After Adding Address:");
+console.log(employee);
+
+// Update salary
+employee.salary = 60000;
+
+console.log("After Updating Salary:");
+console.log(employee);
+
+// Delete department property
+delete employee.department;
+
+console.log("After Deleting Department:");
+console.log(employee);
+
+
+
