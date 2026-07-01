@@ -39,21 +39,23 @@ console.log(fruits);
 // Adding elements using splice()
 // splice(startIndex, deleteCount, newElement1, newElement2)
 fruits.splice(1, 0, "Banana", "Orange");
-console.log(fruits)9;
+console.log(fruits);
 
 
-// for each loop method
-fruits.forEach(function(fruits,index){
-    console.log("the fruit is"+fruits+)
-})
+// forEach() method
+// Executes a function for each array element
+fruits.forEach(function (fruit, index) {
+    console.log("The fruit at index " + index + " is " + fruit);
+});
+
 
 // map() Array Method
 // map() loops through each element of an array and returns a new array
 // without modifying the original array
 
-let fruits = ["Apple", "Mango", "Grapes"];
+let fruitsList = ["Apple", "Mango", "Grapes"];
 
-let upper = fruits.map(function (fruit) {
+let upper = fruitsList.map(function (fruit) {
     console.log("The fruit is: " + fruit);
 
     // Convert each fruit name to uppercase
@@ -62,6 +64,10 @@ let upper = fruits.map(function (fruit) {
 
 // Display the new array with all elements in uppercase
 console.log(upper);
+
+// Original array remains unchanged
+console.log(fruitsList);
+
 
 // filter() Array Method
 // filter() returns a new array containing only the elements
@@ -81,15 +87,11 @@ console.log(evenNumbers);
 console.log(numbers);
 
 
-
 // reduce() method
 // reduce() helps us reduce an array to a single value
-
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 let sum = numbers.reduce(function (num1, num2) {
     return num1 + num2;
 });
 
 console.log(sum);
-
