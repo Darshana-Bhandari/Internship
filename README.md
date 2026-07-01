@@ -23,6 +23,7 @@ Internship/
 ├── day7_task.js                 # Day 7  — Grade calculator using switch (task)
 ├── Day7.js                      # Day 7  — Switch statements, loops & sum of numbers
 ├── day8.js                      # Day 8  — Functions, Scope, Objects & Arrays
+├── day9.js                      # Day 9  — Advanced Array Methods
 ├── package.json                 # Node.js project setup
 ├── package-lock.json            # Node.js dependency lock file
 └── internship/                  # Additional internship files/resources
@@ -217,7 +218,6 @@ Built an interactive grade calculator using `switch(true)`:
   * C → 60–69
   * D → 50–59
   * F → Below 50
-* Practiced function calls with different inputs
 
 #### Function Expression
 
@@ -249,16 +249,74 @@ Practiced:
 
 #### Arrays
 
-Learned how arrays store multiple values.
-
-Practiced:
-
 * Accessing array elements by index
 * `push()` method
 * `pop()` method
 * `shift()` method
 * `unshift()` method
 * `length` property
+
+---
+
+### Day 9 — `day9.js` · *Advanced Array Methods*
+
+Expanded knowledge of JavaScript arrays by learning powerful built-in array methods used for searching, modifying, transforming, and processing data.
+
+#### Array Methods Practiced
+
+##### includes()
+
+* Checked whether a specific element exists in an array
+* Returns `true` if found and `false` if not found
+
+##### indexOf()
+
+* Found the index position of an element
+* Returns `-1` when the element does not exist
+
+##### sort()
+
+* Arranged array elements in alphabetical order
+
+##### reverse()
+
+* Reversed the order of array elements
+
+##### splice()
+
+* Removed elements from an array
+* Added new elements at a specific position
+* Learned how to modify existing arrays
+
+##### forEach()
+
+* Executed a function for each array element
+* Accessed both element values and indexes
+
+##### map()
+
+* Created a new array from an existing array
+* Converted fruit names to uppercase
+* Learned that `map()` does not modify the original array
+
+##### filter()
+
+* Filtered array elements based on conditions
+* Created an array of even numbers
+* Created an array of odd numbers as a task
+
+##### reduce()
+
+* Reduced multiple array values into a single value
+* Calculated the sum of all numbers in an array
+
+#### Day 9 Task — Odd Numbers Filter
+
+Built a program using `filter()` to:
+
+* Extract only odd numbers from an array
+* Return a new array without modifying the original array
+* Practice callback functions and conditional filtering
 
 ---
 
@@ -292,6 +350,7 @@ For JavaScript files:
 node day6.js
 node Day7.js
 node day8.js
+node day9.js
 ```
 
 ---
@@ -307,7 +366,8 @@ Day 5 → Tailwind CSS framework
 Day 6 → JavaScript fundamentals & Node.js setup
 Day 7 → Switch statements, loops & grade calculator
 Day 8 → Functions, scope, objects, arrays & while loops
-Day 9+ → Coming soon...
+Day 9 → Advanced array methods (map, filter, reduce, splice, sort)
+Day 10+ → Coming soon...
 ```
 
 ---
@@ -323,6 +383,7 @@ Day 9+ → Coming soon...
 * [x] Set up Node.js environment
 * [x] Learn JavaScript functions
 * [x] Learn JavaScript arrays
+* [x] Learn Advanced Array Methods
 * [x] Learn JavaScript objects
 * [x] Understand variable scope
 * [ ] DOM Manipulation
@@ -336,7 +397,7 @@ Day 9+ → Coming soon...
 
 ## ⭐ Progress Status
 
-**Current Progress:** Day 8 Completed
+**Current Progress:** Day 9 Completed
 
 ### Skills Learned So Far
 
@@ -352,10 +413,14 @@ Day 9+ → Coming soon...
 * Scope
 * Objects
 * Arrays
+* Advanced Array Methods
+* forEach()
+* map()
+* filter()
+* reduce()
+* splice()
 * Node.js Fundamentals
 
 ---
 
-*This repository is actively updated as my MERN Stack internship progresses. Every commit reflects a new learning milestone and practical implementation*
-
- Thank you
+*This repository is actively updated as my MERN Stack internship progresses. Every commit reflects a new learning milestone and practical implementation.*
