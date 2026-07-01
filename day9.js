@@ -63,5 +63,20 @@ let upper = fruits.map(function (fruit) {
 // Display the new array with all elements in uppercase
 console.log(upper);
 
+// filter() Array Method
+// filter() returns a new array containing only the elements
+// that satisfy the given condition
+
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+let evenNumbers = numbers.filter(function (num) {
+    // Keep only numbers that are divisible by 2
+    return num % 2 === 0;
+});
+
+// Display the new array containing only even numbers
+console.log(evenNumbers);
+
 // Original array remains unchanged
-console.log(fruits);
+console.log(numbers);
+
