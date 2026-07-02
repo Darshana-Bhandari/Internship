@@ -21,7 +21,7 @@
             align-items: center;
         }
 
-        .btn {
+        .first {
             padding: 12px 24px;
             border: none;
             border-radius: 8px;
@@ -32,7 +32,7 @@
             transition: 0.3s ease;
         }
 
-        .btn:hover {
+        .first:hover {
             background-color: #1d4ed8;
             transform: scale(1.05);
         }
@@ -41,27 +41,131 @@
 
 <body>
 
-    <button class="btn">Click Me</button>
+    <!-- Button for Event Listener Practice -->
+    <button class="first">Click Me</button>
 
     <script>
-        // Select button element
-        const button = document.querySelector(".btn");
 
-        // Add click event listener
-        button.addEventListener("click", () => {
+        // ======================================
+        // DOM & Event Listener Practice
+        // Internship Learning Project
+        //
+        // Topics Covered:
+        // 1. DOM
+        // 2. getElementsByClassName()
+        // 3. getElementsByTagName()
+        // 4. querySelector()
+        // 5. querySelectorAll()
+        // 6. innerHTML
+        // 7. Event Listener
+        // ======================================
+
+
+        // ======================================
+        // DOM (Document Object Model)
+        // ======================================
+        // DOM is a programming interface that
+        // represents an HTML document as a tree
+        // of objects.
+        //
+        // JavaScript uses the DOM to:
+        // - Change text
+        // - Change colors and styles
+        // - Add HTML elements
+        // - Remove HTML elements
+        // - Read input values
+        // - Handle events
+        // ======================================
+
+
+        // ======================================
+        // Common Methods to Access HTML Elements
+        // ======================================
+
+        // getElementsByClassName()
+        // Selects HTML elements by class name
+
+        // getElementsByTagName()
+        // Selects HTML elements by tag name
+
+        // getElementById()
+        // Selects an HTML element by ID
+
+        // querySelector()
+        // Selects the first matching element
+
+        // querySelectorAll()
+        // Selects all matching elements
+        // ======================================
+
+
+        // Access elements using querySelector()
+        const button = document.querySelector(".first");
+
+
+        // Get elements using class name
+        const classElements = document.getElementsByClassName("first");
+
+
+        // Get elements using tag name
+        const buttonTags = document.getElementsByTagName("button");
+
+
+        // innerHTML is used to change the content of an HTML element.
+        // Example:
+        // button.innerHTML = "New Button Text";
+
+
+        // Event Listener
+        button.addEventListener("click", function () {
             alert("This is my first event listener!");
         });
+
+
+        // Example of Event Usage
+        // button.addEventListener("mouseover", function () {
+        //     console.log("Mouse is over the button");
+        // });
+
+
+        // Image Manipulation using DOM
+        // Example:
+        // let image = document.querySelector("img");
+        // image.src = "new-image.jpg";
+
+
+        // ======================================
+        // Events and Event Listeners
+        // ======================================
+
+        // Event:
+        // An action that occurs in the browser,
+        // such as click, mouseover, keypress,
+        // page load, form submit, etc.
+
+        // Event Listener:
+        // A function that runs when a specific
+        // event occurs on an element.
+
+        // Common Events:
+
+        // click
+        // Occurs when the user clicks an element
+
+        // mouseover
+        // Occurs when the user moves the mouse over an element
+
+        // change
+        // Occurs when the value of an element changes
+
+        // submit
+        // Occurs when a form is submitted
+
+        // load
+        // Occurs when the page is fully loaded
+        // ======================================
+
     </script>
 
 </body>
 </html>
-
-// =======================================
-// DOM Manipulation & Event Listener Practice
-// Internship Training - Day 10
-// Topics Covered:
-// 1. querySelector()
-// 2. Event Listener
-// 3. DOM Selection
-// 4. Button Click Event
-// =======================================
