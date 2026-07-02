@@ -431,3 +431,27 @@ Day 11+ → Coming soon...
 ```
 
 ---
+
+## 🎯 Internship Goals
+
+* [x] Learn core HTML structure and tags
+* [x] Build forms and interactive UI components
+* [x] Apply CSS styling (inline, internal, external)
+* [x] Use Tailwind CSS
+* [x] Learn JavaScript fundamentals
+* [x] Learn JavaScript control flow (switch, loops)
+* [x] Set up Node.js environment
+* [x] Learn JavaScript functions
+* [x] Learn JavaScript arrays
+* [x] Learn Advanced Array Methods
+* [x] Learn JavaScript objects
+* [x] Understand variable scope
+* [x] DOM Manipulation
+* [ ] ES6 Advanced Concepts
+* [ ] React.js
+* [ ] Express.js
+* [ ] MongoDB
+* [ ] Full MERN Stack Projects
+
+---
+
