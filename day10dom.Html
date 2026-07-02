@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1  style="background-color: red; color:blueviolet">lkdsfksdfskdlnf</h1>
+    <h1 class="second"> this is my second heading</h1> -->
+
+
+    <!-- <p>html</p>
+    <p>css</p>
+    <img src="Executive.png" alt="executive" width="200px" height="200px"> -->
+
+    // 
+    <button class="first" >click me</button>
+    
+    <!-- <button  onmouseover="firstmouseover()">click me</button> -->
+
+    <script>
+        // get elements by class name
+    //    let heading= document.getElementsByClassName("first");
+    //    heading[0].innerHTML="this is my heaidng of the dom"
+    //    heading[0].style.backgroundColor="blue";
+
+
+    //    // get elements by tag name
+    //    heading= document.getElementsByTagName("h1");
+    //    heading[0].innerHTML="this is my heaidng of the dom"
+
+       // access the elments by query selector
+    //    let heading=document.querySelector("p");
+    //    heading.innerHTML="this is my heaidng of the dom"
+    //    heading.style.backgroundColor="blue";
+
+
+    //evenlistner
+    let button=document.querySelector(".first");
+    button.addEventListener("click", function(){
+        alert("this is my first event listner");
+    })
+
+    // uses of the events
+
+    //    function firstmouseover(){
+    //     let heading=document.querySelector("button");
+    //     heading.innerHTML="this is my heaidng of the dom"
+    //     heading.style.backgroundColor="blue";
+    //    }
+       
+
+
+    //    // image
+    //    let image=document.getElementsByTagName("img")
+    //    image[0].src="data:image/png;base64,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";
+
+       // query selector all
+        //  let heading1=document.querySelectorAll("h1");
+        //  heading1[0].innerHTML="this is my second heading of the dom"
+        //  heading1[0].style.backgroundColor="green";
+     
+
+  
+        // const h1 = document.getElementById("first");
+        // h1.style.backgroundColor = "blue";
+        // h1.style.color = "red";
+        // h1.style.fontSize = "50px";
+        // h1.style.textAlign = "center";
+
+        // let paragraphs=document.querySelectorAll("p");
+        // for(let i=0; i<paragraphs.length;i++){ 
+        //     paragraphs[i].style.backgroundColor="blue";
+        //     paragraphs[i].innerHTML="this is my paragraph of the dom";
+        // }
+        
+      
+
+
+
+
+    </script>
+
+    
+</body>
+</html>
+
+
+
+
+ <!-- // dom(document object model) is a programing interfece that represent  the html document as a tree of objects.
+ // javascript uses dom to  change the  text , change colors , add html elements, remove elements read input values and many more things. -->
+
+
+ // common methods to acces html elememts are
+ <!-- getElementsByClassName()  selects the html elements by className
+ getElementsByTagName()  sleects the html eleent by tagname
+ getElementById()  select the html elements by id
+ querySelector()  slects the first matching element
+ <!-- querySelectorAll() --> selects all matching elements -->
+
+
+
+ <!-- // image tag linnu ani tesma dom use garera arko image launu
+
+ //innerHTML le html element ko content lai change garna use huncha
+
+
+ // event and eventListner
+ // event  is an action that occurs in browser or web page like click, mousehover, keypress, load, unload etc.
+ //eventlistner is a function that is called when an event occurs on an element. it is used to handle events in javascript.
+ //the common event are
+ // click()  occurs when the user clicks on an element
+ // mouseover() occurs when the user moves the mouse over an element
+ //onChange() occurs when the value of an element is changed
+ //onSubmit() occurs when a form is submitted
+ //onLoad() occurs when the page is loaded -->
+
+ 
