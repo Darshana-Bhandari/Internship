@@ -25,6 +25,8 @@ Internship/
 ├── day8.js                      # Day 8  — Functions, Scope, Objects & Arrays
 ├── day9.js                      # Day 9  — Advanced Array Methods
 ├── day9_calculator.html         # Day 9  — Calculator UI built with Tailwind CSS (task)
+├── day10_dom_events.html        # Day 10 — DOM selection methods & event listener practice
+├── day9_calculator.html (JS)    # Day 10 — Calculator logic completed (appendToDisplay, calculate, backspace, keyboard support)
 ├── package.json                 # Node.js project setup
 ├── package-lock.json            # Node.js dependency lock file
 └── internship/                  # Additional internship files/resources
@@ -331,7 +333,49 @@ Built the front-end of a calculator app using Tailwind CSS:
 * Google Fonts (Poppins) integration
 * Display screen with a history line and main input readout
 
-**Note:** This task currently covers only the UI/markup and the live clock script. The actual calculator logic (handling button clicks, performing calculations, and updating the display) is still to be implemented using JavaScript.
+**Note:** On Day 9 this task covered only the UI/markup and the live clock script. The calculator logic was completed on Day 10 (see below).
+
+---
+
+### Day 10 — `day10_dom_events.html` + Calculator Logic · *DOM Manipulation & Event Listeners*
+
+Learned how JavaScript interacts with the DOM (Document Object Model) and how to make pages interactive using event listeners.
+
+#### DOM (Document Object Model)
+
+* Understood the DOM as a tree-like representation of an HTML document
+* Learned how JavaScript uses the DOM to read/change text, styles, and elements, and to handle events
+
+#### Element Selection Methods
+
+* `getElementsByClassName()` — selecting elements by class name
+* `getElementsByTagName()` — selecting elements by tag name
+* `getElementById()` — selecting a single element by ID
+* `querySelector()` — selecting the first matching element
+* `querySelectorAll()` — selecting all matching elements
+
+#### innerHTML
+
+* Used `innerHTML` to read and update the content of HTML elements
+
+#### Events & Event Listeners
+
+* Learned what an event is (click, mouseover, change, submit, load, etc.)
+* Learned what an event listener is and how it runs a function in response to an event
+* Practiced `addEventListener("click", ...)` with an alert popup
+* Explored other common events: `mouseover`, `change`, `submit`, `load`
+
+#### Day 10 Task — Completing the Calculator Logic (`day9_calculator.html`)
+
+Finished the calculator built on Day 9 by adding full JavaScript functionality:
+
+* `appendToDisplay()` — adds digits/operators to the display, clearing placeholder `0` or `Error`
+* `clearDisplay()` — resets the display and history (AC button)
+* `backspace()` — removes the last character from the display (⌫ button)
+* `calculate()` — evaluates the expression, converting calculator symbols (`×`, `÷`, `−`, `%`) into valid JavaScript operators before using `eval()`
+* Wired up all `data-value` and `data-action` buttons dynamically using `querySelectorAll()` and `addEventListener()`
+* Added full **keyboard support** (number keys, `+ - * /`, `%`, `Enter`/`=`, `Backspace`, `Escape`) so the calculator works without clicking
+* Handled error states (e.g., invalid expressions show `Error`)
 
 ---
 
@@ -342,7 +386,7 @@ Built the front-end of a calculator app using Tailwind CSS:
 | HTML5             | Structure and semantic markup                        |
 | CSS3              | Styling, layouts, and responsiveness                 |
 | Tailwind CSS      | Utility-first CSS framework                          |
-| JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects |
+| JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects, DOM, events |
 | Node.js           | Running JavaScript in terminal                       |
 | Google Fonts      | Typography                                           |
 
@@ -373,69 +417,17 @@ node day9.js
 ## 📈 Learning Journey
 
 ```text
-Day 1 → HTML basics & personal page
-Day 2 → Forms, lists, links & a real booking system
-Day 3 → Semantic HTML, tables & CSS introduction
-Day 4 → Full healthcare website with HTML & CSS
-Day 5 → Tailwind CSS framework
-Day 6 → JavaScript fundamentals & Node.js setup
-Day 7 → Switch statements, loops & grade calculator
-Day 8 → Functions, scope, objects, arrays & while loops
-Day 9 → Advanced array methods (map, filter, reduce, splice, sort) + Calculator UI with Tailwind CSS
-Day 10+ → Coming soon...
+Day 1  → HTML basics & personal page
+Day 2  → Forms, lists, links & a real booking system
+Day 3  → Semantic HTML, tables & CSS introduction
+Day 4  → Full healthcare website with HTML & CSS
+Day 5  → Tailwind CSS framework
+Day 6  → JavaScript fundamentals & Node.js setup
+Day 7  → Switch statements, loops & grade calculator
+Day 8  → Functions, scope, objects, arrays & while loops
+Day 9  → Advanced array methods (map, filter, reduce, splice, sort) + Calculator UI with Tailwind CSS
+Day 10 → DOM manipulation, element selection methods, event listeners + completed Calculator logic
+Day 11+ → Coming soon...
 ```
 
 ---
-
-## 🎯 Internship Goals
-
-* [x] Learn core HTML structure and tags
-* [x] Build forms and interactive UI components
-* [x] Apply CSS styling (inline, internal, external)
-* [x] Use Tailwind CSS
-* [x] Learn JavaScript fundamentals
-* [x] Learn JavaScript control flow (switch, loops)
-* [x] Set up Node.js environment
-* [x] Learn JavaScript functions
-* [x] Learn JavaScript arrays
-* [x] Learn Advanced Array Methods
-* [x] Learn JavaScript objects
-* [x] Understand variable scope
-* [ ] DOM Manipulation
-* [ ] ES6 Advanced Concepts
-* [ ] React.js
-* [ ] Express.js
-* [ ] MongoDB
-* [ ] Full MERN Stack Projects
-
----
-
-## ⭐ Progress Status
-
-**Current Progress:** Day 9 Completed
-
-### Skills Learned So Far
-
-* HTML5
-* CSS3
-* Tailwind CSS
-* JavaScript Basics
-* Operators
-* Conditionals
-* Switch Statements
-* Loops
-* Functions
-* Scope
-* Objects
-* Arrays
-* Advanced Array Methods
-* forEach()
-* map()
-* filter()
-* reduce()
-* splice()
-* Node.js Fundamentals
-
----
-
-*This repository is actively updated as my MERN Stack internship progresses. Every commit reflects a new learning milestone and practical implementation.*
