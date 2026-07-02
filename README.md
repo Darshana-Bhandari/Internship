@@ -455,3 +455,36 @@ Day 11+ → Coming soon...
 
 ---
 
+## ⭐ Progress Status
+
+**Current Progress:** Day 10 Completed
+
+### Skills Learned So Far
+
+* HTML5
+* CSS3
+* Tailwind CSS
+* JavaScript Basics
+* Operators
+* Conditionals
+* Switch Statements
+* Loops
+* Functions
+* Scope
+* Objects
+* Arrays
+* Advanced Array Methods
+* forEach()
+* map()
+* filter()
+* reduce()
+* splice()
+* Node.js Fundamentals
+* DOM Manipulation
+* Element Selection (querySelector, querySelectorAll, getElementsByClassName, getElementsByTagName)
+* innerHTML
+* Event Listeners (click, mouseover, change, submit, load)
+
+---
+
+*This repository is actively updated as my MERN Stack internship progresses. Every commit reflects a new learning milestone and practical implementation.*
