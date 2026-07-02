@@ -113,5 +113,91 @@
   updateClock();
   setInterval(updateClock, 1000 * 30);
 </script>
+
+<script>
+  // Calculator logic (adapted to this page's data-value / data-action buttons)
+  let display = document.getElementById("display");
+  let history = document.getElementById("history");
+
+  // Add value to display
+  function appendToDisplay(value) {
+    if (display.value === "0" || display.value === "Error") {
+      display.value = "";
+    }
+    display.value += value;
+  }
+
+  // Clear display
+  function clearDisplay() {
+    display.value = "0";
+    history.innerHTML = "&nbsp;";
+  }
+
+  // Remove last character
+  function backspace() {
+    display.value = display.value.slice(0, -1);
+    if (display.value === "") display.value = "0";
+  }
+
+  // Calculate result
+  function calculate() {
+    try {
+      let expression = display.value;
+      history.textContent = expression;
+
+      // Convert calculator symbols into JavaScript operators
+      expression = expression.replace(/×/g, "*");
+      expression = expression.replace(/÷/g, "/");
+      expression = expression.replace(/−/g, "-");
+      expression = expression.replace(/%/g, "/100");
+
+      display.value = eval(expression);
+    } catch (error) {
+      display.value = "Error";
+    }
+  }
+
+  // Wire up buttons using this page's data-value / data-action attributes
+  document.querySelectorAll("[data-value]").forEach((btn) => {
+    btn.addEventListener("click", () => appendToDisplay(btn.getAttribute("data-value")));
+  });
+
+  document.querySelectorAll("[data-action]").forEach((btn) => {
+    const action = btn.getAttribute("data-action");
+    btn.addEventListener("click", () => {
+      if (action === "clear") clearDisplay();
+      else if (action === "back") backspace();
+      else if (action === "equals") calculate();
+    });
+  });
+
+  // Keyboard support
+  document.addEventListener("keydown", function (event) {
+    const key = event.key;
+
+    if (key >= "0" && key <= "9") {
+      appendToDisplay(key);
+    } else if (key === ".") {
+      appendToDisplay(".");
+    } else if (key === "+") {
+      appendToDisplay("+");
+    } else if (key === "-") {
+      appendToDisplay("−");
+    } else if (key === "*") {
+      appendToDisplay("×");
+    } else if (key === "/") {
+      appendToDisplay("÷");
+    } else if (key === "%") {
+      appendToDisplay("%");
+    } else if (key === "Enter" || key === "=") {
+      event.preventDefault();
+      calculate();
+    } else if (key === "Backspace") {
+      backspace();
+    } else if (key === "Escape") {
+      clearDisplay();
+    }
+  });
+</script>
 </body>
 </html>
