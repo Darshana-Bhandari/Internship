@@ -116,6 +116,8 @@
 
 <script>
   // Calculator logic (adapted to this page's data-value / data-action buttons)
+
+  // Get the display
   let display = document.getElementById("display");
   let history = document.getElementById("history");
 
@@ -124,18 +126,18 @@
     if (display.value === "0" || display.value === "Error") {
       display.value = "";
     }
-    display.value += value;
+    display.value += value; // Append the value to the display
   }
 
   // Clear display
   function clearDisplay() {
-    display.value = "0";
+    display.value = "0"; // this helps to clear the display when the user clicks on the "AC" button
     history.innerHTML = "&nbsp;";
   }
 
   // Remove last character
   function backspace() {
-    display.value = display.value.slice(0, -1);
+    display.value = display.value.slice(0, -1); // this helps to remove the last character from the display when the user clicks on the "⌫" button
     if (display.value === "") display.value = "0";
   }
 
@@ -146,12 +148,15 @@
       history.textContent = expression;
 
       // Convert calculator symbols into JavaScript operators
-      expression = expression.replace(/×/g, "*");
+      expression = expression.replace(/×/g, "*");    // this expression tells the javascript that is a expression and g helps to replace the symbols globally not just the first one
       expression = expression.replace(/÷/g, "/");
       expression = expression.replace(/−/g, "-");
       expression = expression.replace(/%/g, "/100");
 
       display.value = eval(expression);
+      // eval is used to provide me the result of the expression that is entered in the display
+
+      // 10+ 20*30 ="610"
     } catch (error) {
       display.value = "Error";
     }
@@ -173,13 +178,20 @@
 
   // Keyboard support
   document.addEventListener("keydown", function (event) {
-    const key = event.key;
- 
+    const key = event.key; // Get the key that was pressed
+
+    // Numbers
     if (key >= "0" && key <= "9") {
       appendToDisplay(key);
-    } else if (key === ".") {
+    }
+
+    // Decimal
+    else if (key === ".") {
       appendToDisplay(".");
-    } else if (key === "+") {
+    }
+
+    // Operators
+    else if (key === "+") {
       appendToDisplay("+");
     } else if (key === "-") {
       appendToDisplay("−");
@@ -189,16 +201,24 @@
       appendToDisplay("÷");
     } else if (key === "%") {
       appendToDisplay("%");
-    } else if (key === "Enter" || key === "=") {
+    }
+
+    // Calculate
+    else if (key === "Enter" || key === "=") {
       event.preventDefault();
       calculate();
-    } else if (key === "Backspace") {
+    }
+
+    // Delete one character
+    else if (key === "Backspace") {
       backspace();
-    } else if (key === "Escape") {
+    }
+
+    // Clear
+    else if (key === "Escape") {
       clearDisplay();
     }
   });
-  
 </script>
 </body>
 </html>
