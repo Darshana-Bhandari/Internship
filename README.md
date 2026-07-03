@@ -488,3 +488,5 @@ Day 11+ → Coming soon...
 ---
 
 *This repository is actively updated as my MERN Stack internship progresses. Every commit reflects a new learning milestone and practical implementation.*
+
+*Thank youu
