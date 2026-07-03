@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Darsu Calculator</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  * { font-family: 'Poppins', sans-serif; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .fade-in { animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  @keyframes floatSlow {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(20px, -25px); }
+  }
+  @keyframes floatSlow2 {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(-25px, 20px); }
+  }
+  .float-a { animation: floatSlow 9s ease-in-out infinite; }
+  .float-b { animation: floatSlow2 11s ease-in-out infinite; }
+
+  .btn-press {
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  }
+  .btn-press:hover { transform: scale(1.05); filter: brightness(1.05); }
+  .btn-press:active { transform: scale(0.93); }
+
+  .glow-equals { box-shadow: 0 0 22px rgba(6,182,212,0.55), 0 8px 20px rgba(0,0,0,0.15); }
+  .glow-equals:hover { box-shadow: 0 0 32px rgba(6,182,212,0.75), 0 10px 24px rgba(0,0,0,0.18); }
+</style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-sky-200 via-sky-300 to-blue-400">
+
+  <!-- Floating background shapes -->
+  <div class="absolute w-72 h-72 bg-blue-300 rounded-full blur-3xl opacity-40 top-10 left-10 float-a"></div>
+  <div class="absolute w-72 h-72 bg-cyan-300 rounded-full blur-3xl opacity-40 bottom-10 right-10 float-b"></div>
+  <div class="absolute w-56 h-56 bg-white rounded-full blur-3xl opacity-30 top-1/2 right-1/4 float-a"></div>
+
+  <!-- Calculator -->
+  <div class="fade-in relative w-[380px] bg-white/25 backdrop-blur-2xl border border-white/30 rounded-[2rem] shadow-[0_8px_40px_rgba(0,0,0,0.2)] p-6">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-4 px-1">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🧮</span>
+        <h1 class="text-xl font-bold text-slate-800">Calculator</h1>
+      </div>
+      <span id="clock" class="text-sm font-medium text-slate-700/80"></span>
+    </div>
+
+    <!-- Display -->
+    <div class="mb-6 rounded-2xl bg-white/40 shadow-inner px-5 py-3 h-28 flex flex-col justify-end">
+      <div id="history" class="text-right text-slate-500 text-sm h-5 truncate">&nbsp;</div>
+      <input
+        id="display"
+        type="text"
+        value="0"
+        readonly
+        class="w-full bg-transparent text-slate-800 text-right text-4xl font-semibold outline-none truncate"
+      >
+    </div>
+
+    <!-- Buttons -->
+    <div class="grid grid-cols-4 gap-3">
+
+      <button data-action="clear" class="btn-press h-16 rounded-2xl bg-red-400/90 text-white text-lg font-semibold shadow-lg">AC</button>
+      <button data-action="back" class="btn-press h-16 rounded-2xl bg-amber-400/90 text-white text-xl font-semibold shadow-lg">⌫</button>
+      <button data-value="%" class="btn-press h-16 rounded-2xl bg-indigo-400/90 text-white text-xl font-semibold shadow-lg">%</button>
+      <button data-value="/" class="btn-press h-16 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 text-white text-xl font-semibold shadow-lg">÷</button>
+
+      <button data-value="7" class="btn-press h-16 rounded-2xl bg-white/40 text-slate-800 text-xl font-medium shadow-lg">7</button>
+      <button data-value="8" class="btn-press h-16 rounded-2xl bg-white/40 text-slate-800 text-xl font-medium shadow-lg">8</button>
+      <button data-value="9" class="btn-press h-16 rounded-2xl bg-white/40 text-slate-800 text-xl font-medium shadow-lg">9</button>
+      <button data-value="*" class="btn-press h-16 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 text-white text-xl font-semibold shadow-lg">×</button>
+
+      <button data-value="4" class="btn-press h-16 rounded-2xl bg-white/40 text-slate-800 text-xl font-medium shadow-lg">4</button>
+      <button data-value="5" class="btn-press h-16 rounded-2xl bg-white/40 text-slate-800 text-xl font-medium shadow-lg">5</button>
+      <button data-value="6" class="btn-press h-16 rounded-2xl bg-white/40 text-slate-800 text-xl font-medium shadow-lg">6</button>
+      <button data-value="-" class="btn-press h-16 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 text-white text-xl font-semibold shadow-lg">−</button>
+
+      <button data-value="1" class="btn-press h-16 rounded-2xl bg-white/40 text-slate-800 text-xl font-medium shadow-lg">1</button>
+      <button data-value="2" class="btn-press h-16 rounded-2xl bg-white/40 text-slate-800 text-xl font-medium shadow-lg">2</button>
+      <button data-value="3" class="btn-press h-16 rounded-2xl bg-white/40 text-slate-800 text-xl font-medium shadow-lg">3</button>
+      <button data-value="+" class="btn-press h-16 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 text-white text-xl font-semibold shadow-lg">+</button>
+
+      <button data-value="0" class="btn-press col-span-2 h-16 rounded-2xl bg-white/40 text-slate-800 text-xl font-medium shadow-lg">0</button>
+      <button data-value="." class="btn-press h-16 rounded-2xl bg-white/40 text-slate-800 text-xl font-medium shadow-lg">.</button>
+      <button data-action="equals" class="btn-press glow-equals h-16 rounded-2xl bg-gradient-to-r from-cyan-500 to-sky-600 text-white text-xl font-bold">=</button>
+
+    </div>
+  </div>
+
+<script>
+  // Just the live clock — no calculator logic here.
+  // That part is for you to build yourself :)
+  const clockEl = document.getElementById('clock');
+
+  function updateClock() {
+    const now = new Date();
+    clockEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+  updateClock();
+  setInterval(updateClock, 1000 * 30);
+</script>
+
+<script>
+  // Calculator logic (adapted to this page's data-value / data-action buttons)
+  let display = document.getElementById("display");
+  let history = document.getElementById("history");
+
+  // Add value to display
+  function appendToDisplay(value) {
+    if (display.value === "0" || display.value === "Error") {
+      display.value = "";
+    }
+    display.value += value;
+  }
+
+  // Clear display
+  function clearDisplay() {
+    display.value = "0";
+    history.innerHTML = "&nbsp;";
+  }
+
+  // Remove last character
+  function backspace() {
+    display.value = display.value.slice(0, -1);
+    if (display.value === "") display.value = "0";
+  }
+
+  // Calculate result
+  function calculate() {
+    try {
+      let expression = display.value;
+      history.textContent = expression;
+
+      // Convert calculator symbols into JavaScript operators
+      expression = expression.replace(/×/g, "*");
+      expression = expression.replace(/÷/g, "/");
+      expression = expression.replace(/−/g, "-");
+      expression = expression.replace(/%/g, "/100");
+
+      display.value = eval(expression);
+    } catch (error) {
+      display.value = "Error";
+    }
+  }
+
+  // Wire up buttons using this page's data-value / data-action attributes
+  document.querySelectorAll("[data-value]").forEach((btn) => {
+    btn.addEventListener("click", () => appendToDisplay(btn.getAttribute("data-value")));
+  });
+
+  document.querySelectorAll("[data-action]").forEach((btn) => {
+    const action = btn.getAttribute("data-action");
+    btn.addEventListener("click", () => {
+      if (action === "clear") clearDisplay();
+      else if (action === "back") backspace();
+      else if (action === "equals") calculate();
+    });
+  });
+
+  // Keyboard support
+  document.addEventListener("keydown", function (event) {
+    const key = event.key;
+ 
+    if (key >= "0" && key <= "9") {
+      appendToDisplay(key);
+    } else if (key === ".") {
+      appendToDisplay(".");
+    } else if (key === "+") {
+      appendToDisplay("+");
+    } else if (key === "-") {
+      appendToDisplay("−");
+    } else if (key === "*") {
+      appendToDisplay("×");
+    } else if (key === "/") {
+      appendToDisplay("÷");
+    } else if (key === "%") {
+      appendToDisplay("%");
+    } else if (key === "Enter" || key === "=") {
+      event.preventDefault();
+      calculate();
+    } else if (key === "Backspace") {
+      backspace();
+    } else if (key === "Escape") {
+      clearDisplay();
+    }
+  });
+  
+</script>
+</body>
+</html>
