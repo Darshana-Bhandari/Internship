@@ -3,214 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whimsical Nature Calculator</title>
+    <title>Professional Calculator UI</title>
 
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body
-class="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat relative"
-style="background-image: url('./totoro.jpg');">
-
-    <!-- Dark overlay -->
-    <div class="absolute inset-0 bg-black/30"></div>
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700">
 
     <!-- Calculator -->
-    <div class="relative z-10 w-[360px] bg-white/20 backdrop-blur-xl border border-white/30 rounded-3xl shadow-2xl p-6">
-    <!-- Background Decorations -->
-     
-
-    <div class="absolute top-8 left-10 text-7xl opacity-80"></div>
-    <div class="absolute top-16 right-12 text-6xl opacity-70"></div>
-
-    <div class="absolute bottom-10 left-12 text-6xl"></div>
-    <div class="absolute bottom-12 right-12 text-6xl"></div>
-
-    <div class="absolute top-1/3 left-6 text-5xl"></div>
-    <div class="absolute top-1/2 right-6 text-5xl"></div>
-
-    <div class="absolute top-24 left-1/2 text-3xl"></div>
-    <div class="absolute bottom-32 right-1/3 text-3xl"></div>
-
-    <div class="absolute bottom-32 left-20 text-5xl"></div>
-    <div class="absolute top-40 right-20 text-5xl"></div>
-
-    <div class="absolute bottom-24 right-24 text-6xl"></div>
-
-    <!-- Calculator -->
+    <div class="w-[360px] bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-6">
 
         <!-- Heading -->
-
-        <h1 class="text-center text-2xl font-bold text-emerald-700">
-            🌸 Totoro's Calculator 🌸
+        <h1 class="text-3xl font-bold text-white text-center mb-6">
+            Calculator
         </h1>
 
-        <p class="text-center text-green-700 mb-5">
-            Peace • Magic • Simplicity
-        </p>
-
         <!-- Display -->
-
-        <div class="mb-6">
-
-            <input
-                id="display"
+        <div  class="mb-6">
+            <input id="display"
                 type="text"
-                readonly
                 placeholder="0"
-                class="w-full h-20 rounded-3xl bg-green-50 border-2 border-green-200 shadow-inner text-right text-4xl px-5 text-green-900 placeholder:text-green-300 outline-none"
+                readonly
+                class="w-full h-20 bg-slate-900 text-white text-right text-4xl rounded-2xl px-5 outline-none shadow-inner placeholder:text-slate-400"
             >
-
         </div>
 
         <!-- Buttons -->
-
         <div class="grid grid-cols-4 gap-4">
 
             <!-- Row 1 -->
-
-            <button
-                onclick="clearDisplay()"
-                class="h-16 rounded-2xl bg-red-400 hover:bg-red-500 text-white text-xl font-bold transition duration-200">
-                
+            <button onclick="clearDisplay()" class="h-16 rounded-xl bg-red-500 text-white text-xl font-semibold hover:bg-red-600 transition">
                 AC
             </button>
 
-            <button
-                onclick="backspace()"
-                class="h-16 rounded-2xl bg-yellow-300 hover:bg-yellow-400 text-gray-700 text-xl font-bold transition">
+            <button onclick="backspace()" class="h-16 rounded-xl bg-yellow-500 text-white text-xl font-semibold hover:bg-yellow-600 transition">
                 ⌫
             </button>
 
-            <button
-                onclick="appendToDisplay('%')"
-                class="h-16 rounded-2xl bg-lime-400 hover:bg-lime-500 text-white text-xl font-bold transition">
+            <button onclick="appendToDisplay('%')"class="h-16 rounded-xl bg-indigo-500 text-white text-xl font-semibold hover:bg-indigo-600 transition">
                 %
             </button>
 
-            <button
-                onclick="appendToDisplay('/')"
-                class="h-16 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white text-xl font-bold transition">
+            <button onclick="appendToDisplay('÷')" class="h-16 rounded-xl bg-orange-500 text-white text-xl font-semibold hover:bg-orange-600 transition">
                 ÷
             </button>
 
             <!-- Row 2 -->
-
-            <button onclick="appendToDisplay('7')" class="h-16 rounded-full bg-green-100 hover:bg-green-200 text-green-900 text-xl">7</button>
-
-            <button onclick="appendToDisplay('8')" class="h-16 rounded-full bg-green-100 hover:bg-green-200 text-green-900 text-xl">8</button>
-
-            <button onclick="appendToDisplay('9')" class="h-16 rounded-full bg-green-100 hover:bg-green-200 text-green-900 text-xl">9</button>
-
-            <button onclick="appendToDisplay('*')" class="h-16 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white text-xl">
-                ×
-            </button>
+            <button onclick="appendToDisplay('7')" class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">7</button>
+            <button onclick="appendToDisplay('8')" class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">8</button>
+            <button onclick="appendToDisplay('9')" class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">9</button>
+            <button onclick="appendToDisplay('×')" class="h-16 rounded-xl bg-orange-500 text-white text-xl hover:bg-orange-600 transition">×</button>
 
             <!-- Row 3 -->
-
-            <button onclick="appendToDisplay('4')" class="h-16 rounded-full bg-green-100 hover:bg-green-200 text-green-900 text-xl">4</button>
-
-            <button onclick="appendToDisplay('5')" class="h-16 rounded-full bg-green-100 hover:bg-green-200 text-green-900 text-xl">5</button>
-
-            <button onclick="appendToDisplay('6')" class="h-16 rounded-full bg-green-100 hover:bg-green-200 text-green-900 text-xl">6</button>
-
-            <button onclick="appendToDisplay('-')" class="h-16 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white text-xl">
-                −
-            </button>
+            <button onclick="appendToDisplay('4')" class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">4</button>
+            <button onclick="appendToDisplay('5')" class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">5</button>
+            <button onclick="appendToDisplay('6')" class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">6</button>
+            <button onclick="appendToDisplay('−')" class="h-16 rounded-xl bg-orange-500 text-white text-xl hover:bg-orange-600 transition">−</button>
 
             <!-- Row 4 -->
-
-            <button onclick="appendToDisplay('1')" class="h-16 rounded-full bg-green-100 hover:bg-green-200 text-green-900 text-xl">1</button>
-
-            <button onclick="appendToDisplay('2')" class="h-16 rounded-full bg-green-100 hover:bg-green-200 text-green-900 text-xl">2</button>
-
-            <button onclick="appendToDisplay('3')" class="h-16 rounded-full bg-green-100 hover:bg-green-200 text-green-900 text-xl">3</button>
-
-            <button onclick="appendToDisplay('+')" class="h-16 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white text-xl">
-                +
-            </button>
-                        <!-- Row 5 -->
-
-            <button
-                onclick="appendToDisplay('0')"
-                class="col-span-2 h-16 rounded-full bg-green-100 hover:bg-green-200 text-green-900 text-xl transition">
+            <button onclick="appendToDisplay('1')" class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">1</button>
+            <button onclick="appendToDisplay('2')" class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">2</button>
+            <button onclick="appendToDisplay('3')" class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">3</button>
+            <button onclick="appendToDisplay('+')" class="h-16 rounded-xl bg-orange-500 text-white text-xl hover:bg-orange-600 transition">+</button>
+            <!-- Row 5 -->
+            <button onclick="appendToDisplay('0')" class="col-span-2 h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">
                 0
             </button>
 
-            <button
-                onclick="appendToDisplay('.')"
-                class="h-16 rounded-full bg-green-100 hover:bg-green-200 text-green-900 text-xl transition">
+            <button onclick="appendToDisplay('.')" class="h-16 rounded-xl bg-slate-700 text-white text-xl hover:bg-slate-600 transition">
                 .
             </button>
 
-            <button
-                onclick="calculate()"
-                class="h-16 rounded-2xl bg-gradient-to-r from-green-500 to-lime-500 hover:from-green-600 hover:to-lime-600 text-white text-2xl font-bold transition">
-                ✨
+            <button onclick="calculate()" class="h-16 rounded-xl bg-green-500 text-white text-xl font-bold hover:bg-green-600 transition">
+                =
             </button>
 
         </div>
 
-        <!-- Footer -->
-
-        <p class="text-center text-green-700 text-sm mt-6">
-            🌼 Every little calculation blooms into something beautiful 🌼
-        </p>
-
     </div>
 
-    <script>
+    
+        <script>
+    // Get the display
+    let display = document.getElementById("display");
 
-        let display = document.getElementById('display');
-
-        function appendToDisplay(value) {
-            display.value += value;
-        }
-
-        function clearDisplay() {
-            display.value = '';
-        }
-
-        function calculate() {
-            try {
-                display.value = eval(display.value);
-            } catch (error) {
-                display.value = 'Error';
-            }
-        }
-
-        function backspace() {
-            display.value = display.value.slice(0, -1);
-        }
-
-    </script>
-<script>
-    let display = document.getElementById('display');
-
+    // Add value to display
     function appendToDisplay(value) {
-        display.value += value;
+        display.value += value; // Append the value to the display
     }
 
+    // Clear display
     function clearDisplay() {
-        display.value = '';
+        display.value = "";  // this helps to clear the display when the user clicks on the "AC" button
     }
 
+    // Remove last character
+    function backspace() {
+        display.value = display.value.slice(0, -1);  // this helps to remove the last character from the display when the user clicks on the "⌫" button
+    }
+
+    // Calculate result
     function calculate() {
         try {
-            display.value = eval(display.value);
+
+            let expression = display.value;
+
+            // Convert calculator symbols into JavaScript operators
+            expression = expression.replace(/×/g, "*");    //  // this expression tells the javascript that is  a expression and  g hehlps to replace the sybols globally not  just  the forst one
+            expression = expression.replace(/÷/g, "/");
+            expression = expression.replace(/−/g, "-");
+            expression = expression.replace(/%/g, "/100");
+
+            display.value = eval(expression);  
+            // eval is used to provide me the result of the expression that is entered in the display
+
+            // 10+ 20*30 ="610" 
+
         } catch (error) {
-            display.value = 'Error';
+            display.value = "Error";
         }
     }
 
-    function backspace() {
-        display.value = display.value.slice(0, -1);
-    }
+    // Keyboard support
+    document.addEventListener("keydown", function (event) {
+
+        const key = event.key;  // Get the key that was pressed
+
+        // Numbers
+        if (key >= "0" && key <= "9") {
+            appendToDisplay(key);
+        }
+
+        // Decimal
+        else if (key === ".") {
+            appendToDisplay(".");
+        }
+
+        // Operators
+        else if (key === "+") {
+            appendToDisplay("+");
+        }
+
+        else if (key === "-") {
+            appendToDisplay("−");
+        }
+
+        else if (key === "*") {
+            appendToDisplay("×");
+        }
+
+        else if (key === "/") {
+            appendToDisplay("÷");
+        }
+
+        else if (key === "%") {
+            appendToDisplay("%");
+        }
+
+        // Calculate
+        else if (key === "Enter" || key === "=") {
+            event.preventDefault();
+            calculate();
+        }
+
+        // Delete one character
+        else if (key === "Backspace") {
+            backspace();
+        }
+
+        // Clear
+        else if (key === "Escape") {
+            clearDisplay();
+        }
+    });
 </script>
 
-</div>
+    
 
-</body>
-</html>
 </body>
 </html>
