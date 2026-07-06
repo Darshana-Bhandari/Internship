@@ -78,3 +78,29 @@ loginPromise
     .catch((error) => {
         console.log(error);
     });
+
+
+// ASYNC / AWAIT IN JAVASCRIPT
+
+
+// async:
+// Used to declare a function that returns a Promise.
+
+// await:
+// Pauses the execution of an async function
+// until the Promise is resolved or rejected.
+
+function fetchData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Data fetched successfully");
+        }, 6000); // Wait for 6 seconds
+    });
+}
+
+async function displayData() {
+    const result = await fetchData();
+    console.log(result);
+}
+
+displayData();
