@@ -7,15 +7,8 @@ console.log("This is synchronous code");
 console.log("End of the program");
 
 
-
-// Problem with Synchronous Code
-// Sometimes tasks (API calls, database requests, file loading)
-// take time, which can block execution.
-// To solve this, JavaScript uses asynchronous programming.
-
-
-
 // Sample Data
+
 const data = [
     {
         name: "Darshana",
@@ -32,15 +25,13 @@ const data = [
 ];
 
 
-// ===============================
 // ASYNCHRONOUS FUNCTION
 // Simulates fetching data from a server
-// using setTimeout()
-// ===============================
+
 
 function getData() {
     setTimeout(() => {
-        console.log("Fetching data...\n");
+        console.log("\nFetching data...\n");
 
         data.forEach((person, index) => {
             console.log(
@@ -51,11 +42,39 @@ Address: ${person.address}
 ------------------------`
             );
         });
-    }, 1000); // Executes after 1 second
+    }, 1000);
 }
 
-
-// Function Call
 getData();
 
 console.log("This line executes before data is displayed.");
+
+// PROMISES IN JAVASCRIPT
+// A Promise represents the eventual
+// completion or failure of an async task.
+// States:
+// 1. Pending
+// 2. Fulfilled (Resolved)
+// 3. Rejected
+
+
+const loginPromise = new Promise((resolve, reject) => {
+    let isLoggedIn = true;
+
+    if (isLoggedIn) {
+        resolve("Login successful");
+    } else {
+        reject("Login failed");
+    }
+});
+
+
+// Handling the Promise
+
+loginPromise
+    .then((result) => {
+        console.log(result);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
