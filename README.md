@@ -27,6 +27,7 @@ Internship/
 ├── day9_calculator.html         # Day 9  — Calculator UI built with Tailwind CSS (task)
 ├── day10_dom_events.html        # Day 10 — DOM selection methods & event listener practice
 ├── day9_calculator.html (JS)    # Day 10 — Calculator logic completed (appendToDisplay, calculate, backspace, keyboard support)
+├── day11.js                     # Day 11 — Synchronous vs Asynchronous JavaScript, Promises & Async/Await
 ├── package.json                 # Node.js project setup
 ├── package-lock.json            # Node.js dependency lock file
 └── internship/                  # Additional internship files/resources
@@ -379,6 +380,41 @@ Finished the calculator built on Day 9 by adding full JavaScript functionality:
 
 ---
 
+### Day 11 — `day11.js` · *Synchronous vs Asynchronous JavaScript*
+
+Explored how JavaScript handles synchronous and asynchronous code execution, along with Promises and async/await syntax.
+
+#### Synchronous JavaScript
+
+* Learned that synchronous code executes line by line, in order
+* Confirmed execution order using simple `console.log()` statements from start to end of the program
+
+#### Asynchronous Functions
+
+* Simulated fetching data from a server using `setTimeout()`
+* Created a `getData()` function that loops through an array of objects (`name`, `role`, `age`, `address`) using `forEach()` and logs each one after a 1-second delay
+* Observed that code placed **after** an async function call runs **before** the async callback completes, proving JavaScript doesn't wait for the timeout to finish
+
+#### Promises
+
+* Learned that a Promise represents the eventual completion or failure of an asynchronous task
+* Explored the three Promise states:
+
+  * Pending
+  * Fulfilled (Resolved)
+  * Rejected
+* Built a `loginPromise` example that resolves with `"Login successful"` or rejects with `"Login failed"` based on a boolean flag
+* Handled the Promise result using `.then()` for success and `.catch()` for errors
+
+#### Async / Await
+
+* Learned that `async` is used to declare a function that returns a Promise
+* Learned that `await` pauses execution inside an async function until the Promise resolves or rejects
+* Built a `fetchData()` function returning a Promise that resolves after a 6-second delay
+* Created an `async function displayData()` that uses `await` to pause until `fetchData()` resolves, then logs the result
+
+---
+
 ## 🛠️ Technologies Used
 
 | Technology        | Usage                                                |
@@ -386,7 +422,7 @@ Finished the calculator built on Day 9 by adding full JavaScript functionality:
 | HTML5             | Structure and semantic markup                        |
 | CSS3              | Styling, layouts, and responsiveness                 |
 | Tailwind CSS      | Utility-first CSS framework                          |
-| JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects, DOM, events |
+| JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects, DOM, events, async programming |
 | Node.js           | Running JavaScript in terminal                       |
 | Google Fonts      | Typography                                           |
 
@@ -410,6 +446,7 @@ node day6.js
 node Day7.js
 node day8.js
 node day9.js
+node day11.js
 ```
 
 ---
@@ -427,7 +464,8 @@ Day 7  → Switch statements, loops & grade calculator
 Day 8  → Functions, scope, objects, arrays & while loops
 Day 9  → Advanced array methods (map, filter, reduce, splice, sort) + Calculator UI with Tailwind CSS
 Day 10 → DOM manipulation, element selection methods, event listeners + completed Calculator logic
-Day 11+ → Coming soon...
+Day 11 → Synchronous vs Asynchronous JavaScript, Promises & Async/Await
+Day 12+ → Coming soon...
 ```
 
 ---
@@ -447,6 +485,7 @@ Day 11+ → Coming soon...
 * [x] Learn JavaScript objects
 * [x] Understand variable scope
 * [x] DOM Manipulation
+* [x] Asynchronous JavaScript (Promises & Async/Await)
 * [ ] ES6 Advanced Concepts
 * [ ] React.js
 * [ ] Express.js
@@ -457,7 +496,7 @@ Day 11+ → Coming soon...
 
 ## ⭐ Progress Status
 
-**Current Progress:** Day 10 Completed
+**Current Progress:** Day 11 Completed
 
 ### Skills Learned So Far
 
@@ -484,9 +523,13 @@ Day 11+ → Coming soon...
 * Element Selection (querySelector, querySelectorAll, getElementsByClassName, getElementsByTagName)
 * innerHTML
 * Event Listeners (click, mouseover, change, submit, load)
+* Synchronous vs Asynchronous JavaScript
+* Promises (pending, fulfilled, rejected)
+* Promise handling with `.then()` / `.catch()`
+* Async/Await syntax
 
 ---
 
 *This repository is actively updated as my MERN Stack internship progresses. Every commit reflects a new learning milestone and practical implementation.*
 
-*Thank youu
+*Thank youu*
