@@ -1,8 +1,8 @@
 // Fetch API CRUD Operations using Async/Await
 
-// --------------------------------------------------
+
 // GET Request - Fetch Data
-// --------------------------------------------------
+
 
 async function getPosts() {
     try {
@@ -19,9 +19,9 @@ async function getPosts() {
 getPosts();
 
 
-// --------------------------------------------------
+-
 // POST Request - Create Data
-// --------------------------------------------------
+
 
 async function createPost() {
     try {
@@ -49,9 +49,9 @@ async function createPost() {
 createPost();
 
 
-// --------------------------------------------------
+
 // PUT Request - Update Data
-// --------------------------------------------------
+
 
 async function updatePost() {
     try {
@@ -79,9 +79,9 @@ async function updatePost() {
 updatePost();
 
 
-// --------------------------------------------------
+
 // DELETE Request - Delete Data
-// --------------------------------------------------
+
 
 async function deletePost() {
     try {
