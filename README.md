@@ -28,6 +28,8 @@ Internship/
 ├── day10_dom_events.html        # Day 10 — DOM selection methods & event listener practice
 ├── day9_calculator.html (JS)    # Day 10 — Calculator logic completed (appendToDisplay, calculate, backspace, keyboard support)
 ├── day11.js                     # Day 11 — Synchronous vs Asynchronous JavaScript, Promises & Async/Await
+├── day12.html                   # Day 12 — HTML shell linking day12.js
+├── day12.js                     # Day 12 — Fetch API CRUD operations (GET, POST, PUT, DELETE)
 ├── package.json                 # Node.js project setup
 ├── package-lock.json            # Node.js dependency lock file
 └── internship/                  # Additional internship files/resources
@@ -415,6 +417,52 @@ Explored how JavaScript handles synchronous and asynchronous code execution, alo
 
 ---
 
+### Day 12 — `day12.html` + `day12.js` · *Fetch API & CRUD Operations*
+
+Learned how to use the Fetch API to communicate with a server and perform CRUD (Create, Read, Update, Delete) operations, using both `.then()/.catch()` chaining and `async/await` syntax.
+
+#### Fetch API Basics
+
+* Learned that the Fetch API is a built-in JavaScript API used to send HTTP requests and receive responses from a server
+* Reviewed the common HTTP methods:
+
+  * `GET` — Retrieve data
+  * `POST` — Create new data
+  * `PUT` — Update existing data
+  * `PATCH` — Partially update data
+  * `DELETE` — Remove data
+* Practiced against the public [JSONPlaceholder](https://jsonplaceholder.typicode.com/) test API
+
+#### GET Request — Read Data
+
+* Built a `getPosts()` async function to fetch all posts from `/posts`
+* Parsed the JSON response with `response.json()`
+* Logged the fetched data to the console
+
+#### POST Request — Create Data
+
+* Sent a `POST` request to `/posts` with a JSON body (`title`, `body`, `userId`)
+* Set the `Content-Type: application/json` header
+* Logged the newly created post returned by the server
+
+#### PUT Request — Update Data
+
+* Sent a `PUT` request to `/posts/1` with updated `title` and `body` fields
+* Replaced the existing post data and logged the updated response
+
+#### DELETE Request — Remove Data
+
+* Sent a `DELETE` request to `/posts/1`
+* Checked `response.ok` to confirm successful deletion
+* Logged a success message on completion
+
+#### Two Approaches Practiced
+
+* **`async/await` with `try...catch`** — used for all CRUD operations (GET, POST, PUT, DELETE) for cleaner, more readable asynchronous code and centralized error handling
+* **`.then()` / `.catch()` chaining** — used as an alternative pattern for POST, PUT, and DELETE requests to compare syntax and behavior against `async/await`
+
+---
+
 ## 🛠️ Technologies Used
 
 | Technology        | Usage                                                |
@@ -422,7 +470,7 @@ Explored how JavaScript handles synchronous and asynchronous code execution, alo
 | HTML5             | Structure and semantic markup                        |
 | CSS3              | Styling, layouts, and responsiveness                 |
 | Tailwind CSS      | Utility-first CSS framework                          |
-| JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects, DOM, events, async programming |
+| JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects, DOM, events, async programming, Fetch API |
 | Node.js           | Running JavaScript in terminal                       |
 | Google Fonts      | Typography                                           |
 
@@ -447,6 +495,7 @@ node Day7.js
 node day8.js
 node day9.js
 node day11.js
+node day12.js
 ```
 
 ---
@@ -465,7 +514,8 @@ Day 8  → Functions, scope, objects, arrays & while loops
 Day 9  → Advanced array methods (map, filter, reduce, splice, sort) + Calculator UI with Tailwind CSS
 Day 10 → DOM manipulation, element selection methods, event listeners + completed Calculator logic
 Day 11 → Synchronous vs Asynchronous JavaScript, Promises & Async/Await
-Day 12+ → Coming soon...
+Day 12 → Fetch API & CRUD operations (GET, POST, PUT, DELETE) with async/await and .then()/.catch()
+Day 13+ → Coming soon...
 ```
 
 ---
@@ -486,6 +536,7 @@ Day 12+ → Coming soon...
 * [x] Understand variable scope
 * [x] DOM Manipulation
 * [x] Asynchronous JavaScript (Promises & Async/Await)
+* [x] Fetch API & CRUD Operations
 * [ ] ES6 Advanced Concepts
 * [ ] React.js
 * [ ] Express.js
@@ -496,7 +547,7 @@ Day 12+ → Coming soon...
 
 ## ⭐ Progress Status
 
-**Current Progress:** Day 11 Completed
+**Current Progress:** Day 12 Completed
 
 ### Skills Learned So Far
 
@@ -527,6 +578,8 @@ Day 12+ → Coming soon...
 * Promises (pending, fulfilled, rejected)
 * Promise handling with `.then()` / `.catch()`
 * Async/Await syntax
+* Fetch API (GET, POST, PUT, DELETE)
+* CRUD operations with a REST API
 
 ---
 
