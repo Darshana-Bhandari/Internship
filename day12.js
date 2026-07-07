@@ -1,109 +1,71 @@
- //is commonly used to:
-// -get data (GET)
-// - send data (POST)
-// --update data (PUT/PATCH)
-// -- delete data (DELETE)
+// Fetch API is a built-in JavaScript API used to send HTTP requests
+// and receive responses from a server.
 
+// Common HTTP Methods:
+// GET    - Retrieve data
+// POST   - Create new data
+// PUT    - Update existing data
+// PATCH  - Partially update data
+// DELETE - Remove data
 
+// --------------------------------------------------
+// POST Request - Create a New Post
+// --------------------------------------------------
 
-// why do we use fetch api?
-//- imagine we are building:
-// E-commerce webiste
-// the frontend needs data fron the backend
-// without fetch api , our website cannot communicate with the server
-
-// let url=http://localhost/5000/api
-//basic get request (GET)
-// fetch("https://jsonplaceholder.typicode.com/users") //  sending the request to the server
-// .then (function(response){ 
-    
-//      /// receives the server response 
-//      console.log("loading the data ....")
-
-//     return response.json();  // converts the json into a javascript object
-// })
-
-
-// .then(function(data){ /// displays the received data
-   
-//         // console.log(userdata.username)
-
-//         let output=""
-//         data.forEach(function(user){
-//             output+=`<li>${user.name}</li>`;
-//             output+=`<li>${user.email}</li>`;
-            
-//         });
-//         document.getElementById("users").innerHTML=output;
-//     })
-
-    // /// fetch using the aynsc and await
-    //  async  function getUsers(){
-    //     let response = await fetch("https://jsonplaceholder.typicode.com/users") /// receives the server response 
-    //     let users = await response.json()
-    //     console.log(users)
-    //   }
-
-    //   getUsers()
-
-
-
-
-
-
-//POST request (POST) // users send data 
-//fetch(url,optionsvalue)
-
-fetch("https://jsonplaceholder.typicode.com/posts",{
-    method:"POST",
-    headers:{    /// headers provide the extra information about the request
-        "Content-Type":"application/json"   // ma json format ma data lei send gardei xu
-       
+fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
     },
-    body:JSON.stringify({  // converts the javascript objects into a json string
-        title:"javascript learning or fetch post requests learnig",
-        body:"learning fetch api",
-        userdId:1
+    body: JSON.stringify({
+        title: "Learning Fetch API POST Request",
+        body: "Learning Fetch API",
+        userId: 1
     })
 })
-
-
-.then(function(response){
-     return response.json();
-
+.then((response) => response.json())
+.then((data) => {
+    console.log("Post Created:", data);
 })
-.then(function(data){
-    console.log(data)
-})
+.catch((error) => {
+    console.error("Error creating post:", error);
+});
 
 
-//// only update the title (patch/PUT)
-fetch("https://jsonplaceholder.typicode.com/posts/1",{
-    method:"PUT",
-    headers:{
-        "Content-Type":"application/json"
+// --------------------------------------------------
+// PUT Request - Update a Post
+// --------------------------------------------------
+
+fetch("https://jsonplaceholder.typicode.com/posts/1", {
+    method: "PUT",
+    headers: {
+        "Content-Type": "application/json"
     },
-    body:JSON.stringify({
-        title:"new title",
-        body:"new data updated"
+    body: JSON.stringify({
+        title: "New Title",
+        body: "Updated Post Data",
+        userId: 1
     })
 })
-
-.then(function(response1){
-     return response1.json();
-
+.then((response) => response.json())
+.then((data) => {
+    console.log("Post Updated:", data);
 })
-.then(function(data1){
-    console.log(data1)
+.catch((error) => {
+    console.error("Error updating post:", error);
+});
+
+
+// --------------------------------------------------
+// DELETE Request - Delete a Post
+// --------------------------------------------------
+
+fetch("https://jsonplaceholder.typicode.com/posts/1", {
+    method: "DELETE"
 })
-
-// delete the data(DELETE)
-fetch("https://jsonplaceholder.typicode.com/posts/1",{
-    method:"DELETE",
-
+.then(() => {
+    console.log("Post Deleted Successfully");
 })
-
-.then(function(response2){
-    console.log("post deleted")
-
-})
+.catch((error) => {
+    console.error("Error deleting post:", error);
+});
