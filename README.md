@@ -30,8 +30,31 @@ Internship/
 ├── day11.js                     # Day 11 — Synchronous vs Asynchronous JavaScript, Promises & Async/Await
 ├── day12.html                   # Day 12 — HTML shell linking day12.js
 ├── day12.js                     # Day 12 — Fetch API CRUD operations (GET, POST, PUT, DELETE)
+├── day13.html                   # Day 13 — HTML shell linking day13.js
+├── day13.js                     # Day 13 — Arrow Functions, Template Literals, Named & Default Exports
+├── day13_import.js              # Day 13 — Importing named exports (add, sub) from day13.js
 ├── package.json                 # Node.js project setup
 ├── package-lock.json            # Node.js dependency lock file
+├── vite-project/                # Day 13 — React project scaffolded with Vite
+│   ├── src/
+│   │   ├── assets/
+│   │   │   ├── components/
+│   │   │   │   └── Button.jsx   # Day 13 — First React component
+│   │   │   ├── hero.png
+│   │   │   ├── react.svg
+│   │   │   └── vite.svg
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── public/
+│   ├── .env
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   └── vite.config.js
 └── internship/                  # Additional internship files/resources
 ```
 
@@ -463,6 +486,64 @@ Learned how to use the Fetch API to communicate with a server and perform CRUD (
 
 ---
 
+### Day 13 — `day13.js` · *Arrow Functions, Template Literals, Import/Export & React Setup*
+
+Learned modern ES6 syntax for writing shorter functions and cleaner strings, how JavaScript modules share code between files, and set up my first React project using Vite.
+
+#### Arrow Functions
+
+* Learned that arrow functions are a shorter syntax for writing functions, introduced in ES6 (ECMAScript 2015)
+* Wrote a basic arrow function `hello()` that logs a message to the console
+* Wrote an arrow function with parameters, `sum(a, b)`, that returns the sum of two numbers
+* Learned that a function containing only one `return` statement can be written in an even shorter implicit-return form (e.g. `const sum = (a, b) => a + b;`)
+
+#### Template Literals
+
+* Learned that template literals are strings enclosed in backticks (`` ` ` ``) that allow embedding variables/expressions using `${}`
+* Compared traditional string concatenation (`"name " + name`) with template literal syntax (`` `name is ${name} ${surname}` ``)
+* Learned why template literals are useful:
+
+  * Cleaner and more readable code
+  * Easier string formatting
+  * Support for multi-line strings
+  * Expression interpolation using `${}`
+
+#### Import and Export
+
+* Learned that `export` allows sharing variables, functions, or classes from one JavaScript file to another, and `import` allows using them in another file
+* Explored the two types of exports: **Named Export** and **Default Export**
+
+##### Named Export
+
+* Created and exported `add(a, b)` and `sub(a, b)` functions using named exports in `day13.js`
+* Learned that named exports allow multiple values to be exported from the same file
+* Learned that named imports must be wrapped in curly braces `{}` and must match the exported name exactly
+
+##### Default Export
+
+* Learned that a file can have only **one** default export
+* Learned that default exports are imported without `{}` and can be given any name on import
+
+##### Named vs Default Export — Key Differences
+
+| Named Export | Default Export |
+|---|---|
+| Multiple exports allowed per file | Only one default export per file |
+| Must be imported using `{ }` with the exact same name | Imported without `{ }`, any name allowed |
+
+* Practiced importing `add` and `sub` from `day13.js` into another file using `import { add, sub } from "./day13.js";`
+* Called `add(10, 5)` → `15` and `sub(10, 5)` → `5`, and logged both results to the console
+* Reinforced that importing the wrong name (e.g. `subtract` instead of `sub`) causes an error, since named imports must exactly match the exported names
+
+#### React Setup with Vite
+
+* Set up a new React project named **`vite-project`** using Vite
+* Explored the default Vite + React project structure (`src/`, `App.jsx`, `main.jsx`, `App.css`, `index.css`, `assets/`, `public/`, `vite.config.js`, `eslint.config.js`)
+* Created a `components/` folder inside `src/assets/`
+* Built my first React component, **`Button.jsx`**, inside `src/assets/components/`
+
+---
+
 ## 🛠️ Technologies Used
 
 | Technology        | Usage                                                |
@@ -470,7 +551,9 @@ Learned how to use the Fetch API to communicate with a server and perform CRUD (
 | HTML5             | Structure and semantic markup                        |
 | CSS3              | Styling, layouts, and responsiveness                 |
 | Tailwind CSS      | Utility-first CSS framework                          |
-| JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects, DOM, events, async programming, Fetch API |
+| JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects, DOM, events, async programming, Fetch API, arrow functions, template literals, modules |
+| React.js          | Component-based UI development (via Vite)            |
+| Vite              | Fast React project scaffolding & build tool           |
 | Node.js           | Running JavaScript in terminal                       |
 | Google Fonts      | Typography                                           |
 
@@ -496,6 +579,15 @@ node day8.js
 node day9.js
 node day11.js
 node day12.js
+node day13.js
+```
+
+For the React project:
+
+```bash
+cd vite-project
+npm install
+npm run dev
 ```
 
 ---
@@ -515,7 +607,8 @@ Day 9  → Advanced array methods (map, filter, reduce, splice, sort) + Calculat
 Day 10 → DOM manipulation, element selection methods, event listeners + completed Calculator logic
 Day 11 → Synchronous vs Asynchronous JavaScript, Promises & Async/Await
 Day 12 → Fetch API & CRUD operations (GET, POST, PUT, DELETE) with async/await and .then()/.catch()
-Day 13+ → Coming soon...
+Day 13 → Arrow functions, template literals, named & default exports/imports + React project setup with Vite (first component: Button.jsx)
+Day 14+ → Coming soon...
 ```
 
 ---
@@ -537,8 +630,8 @@ Day 13+ → Coming soon...
 * [x] DOM Manipulation
 * [x] Asynchronous JavaScript (Promises & Async/Await)
 * [x] Fetch API & CRUD Operations
-* [ ] ES6 Advanced Concepts
-* [ ] React.js
+* [x] ES6 Advanced Concepts (Arrow Functions, Template Literals, Modules)
+* [x] React.js (project setup & first component)
 * [ ] Express.js
 * [ ] MongoDB
 * [ ] Full MERN Stack Projects
@@ -547,7 +640,7 @@ Day 13+ → Coming soon...
 
 ## ⭐ Progress Status
 
-**Current Progress:** Day 12 Completed
+**Current Progress:** Day 13 Completed
 
 ### Skills Learned So Far
 
@@ -580,6 +673,11 @@ Day 13+ → Coming soon...
 * Async/Await syntax
 * Fetch API (GET, POST, PUT, DELETE)
 * CRUD operations with a REST API
+* Arrow Functions
+* Template Literals
+* Named & Default Exports/Imports (ES Modules)
+* React.js project setup with Vite
+* Building React components (`Button.jsx`)
 
 ---
 
