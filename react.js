@@ -1,15 +1,13 @@
-// ===============================
+
 // React JS Notes
-// ===============================
 
 // What is React JS?
 // React JS is a JavaScript library developed by Meta (Facebook)
 // for building fast, interactive, and reusable User Interfaces (UI),
 // especially for Single Page Applications (SPAs).
 
-// --------------------------------
+
 // Features of React
-// --------------------------------
 
 // 1. Component-Based Architecture
 // - The UI is divided into small, reusable components.
@@ -37,9 +35,9 @@
 // - Data flows from Parent Component to Child Component.
 // - This makes the application easier to understand and debug.
 
-// --------------------------------
+
+
 // What is SPA (Single Page Application)?
-// --------------------------------
 
 // SPA stands for Single Page Application.
 // It loads only one HTML page initially.
@@ -53,9 +51,9 @@
 // - Instagram
 // - Netflix
 
-// --------------------------------
+
+
 // What is Vite?
-// --------------------------------
 
 // Vite is a modern frontend build tool used to create React projects quickly.
 
@@ -67,9 +65,9 @@
 // - Faster builds than Create React App
 // - Optimized for modern JavaScript development
 
-// --------------------------------
+
 // Real DOM vs Virtual DOM
-// --------------------------------
+
 
 // Real DOM
 // - The actual DOM created and managed by the browser.
@@ -85,9 +83,8 @@
 // - Only the changed elements are updated in the Real DOM.
 // - This improves application performance.
 
-// --------------------------------
+
 // JSX
-// --------------------------------
 
 // JSX stands for JavaScript XML.
 // It allows us to write HTML-like code inside JavaScript.
@@ -96,25 +93,21 @@
 // Example:
 // const element = <h1>Hello React</h1>;
 
-// --------------------------------
+
 // Props
-// --------------------------------
 
 // Props (Properties) are used to pass data
 // from a Parent Component to a Child Component.
 // Props are Read-Only.
 
-// --------------------------------
+
 // State
-// --------------------------------
 
 // State stores data that can change over time.
 // When state changes, React automatically re-renders
 // the component to display the updated UI.
 
-// --------------------------------
 // React Hooks
-// --------------------------------
 
 // Hooks allow function components to use React features.
 
@@ -124,9 +117,8 @@
 // - useContext() -> Share data without prop drilling.
 // - useRef() -> Access DOM elements or store mutable values.
 
-// --------------------------------
+
 // Why React?
-// --------------------------------
 
 // - Reusable Components
 // - Better Performance using Virtual DOM
@@ -136,9 +128,9 @@
 // - Used for Web and Mobile Apps (React Native)
 // - Makes UI development easier and more organized
 
-// --------------------------------
+
+
 // Difference: Library vs Framework
-// --------------------------------
 
 // React is a Library, not a Framework.
 
@@ -150,9 +142,9 @@
 // - Provides a complete structure for building applications.
 // - Includes routing, state management, and more.
 
-// --------------------------------
+
+
 // React Project Structure (Basic)
-// --------------------------------
 
 // src/
 //   App.jsx          -> Main Component
@@ -161,9 +153,11 @@
 //   assets/          -> Images, Icons
 //   styles/          -> CSS Files
 
-// --------------------------------
+
+
 // Summary
-// --------------------------------
+
+-
 
 // React = JavaScript Library
 // Meta (Facebook) developed React.
