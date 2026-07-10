@@ -50,11 +50,11 @@ Internship/
 │   ├── public/
 │   ├── .env
 │   ├── .gitignore
-│   ├── eslint.config.js
-│   ├── index.html
-│   ├── package.json
+│   ├── eslint.config.js         # Day 14 — Flat ESLint config w/ React Hooks + React Refresh rules
+│   ├── index.html               # Day 14 — Vite entry HTML (root div + main.jsx module script)
+│   ├── package.json             # Day 14 — Added Tailwind CSS v4 + @tailwindcss/vite plugin
 │   ├── package-lock.json
-│   └── vite.config.js
+│   └── vite.config.js           # Day 14 — Registered @tailwindcss/vite plugin alongside React
 └── internship/                  # Additional internship files/resources
 ```
 
@@ -544,16 +544,68 @@ Learned modern ES6 syntax for writing shorter functions and cleaner strings, how
 
 ---
 
+### Day 14 — `vite.config.js` + `package.json` + `eslint.config.js` · *Tailwind CSS v4 Integration with Vite*
+
+Configured the **`vite-project`** React app to use **Tailwind CSS v4**, wiring it in directly through Vite's plugin system instead of the older PostCSS/`tailwind.config.js` setup, and reviewed the rest of the project's tooling configuration.
+
+#### Tailwind CSS v4 via the Vite Plugin
+
+* Installed `tailwindcss` and the official `@tailwindcss/vite` plugin (both `^4.1.12`) as project dependencies
+* Learned that Tailwind v4 no longer requires a separate `postcss.config.js` or `tailwind.config.js` for a basic setup — it plugs straight into the bundler
+* Registered `tailwindcss()` inside `vite.config.js` alongside the existing `react()` plugin:
+
+  ```js
+  import { defineConfig } from 'vite'
+  import react from '@vitejs/plugin-react'
+  import tailwindcss from '@tailwindcss/vite'
+
+  export default defineConfig({
+    plugins: [react(), tailwindcss()],
+  })
+  ```
+* Understood that this lets Tailwind scan and generate utility classes automatically during Vite's dev server and build steps
+
+#### Reviewing `package.json`
+
+* Confirmed the standard Vite scripts: `dev`, `build`, `preview`, and `lint`
+* Noted the dependency split between runtime `dependencies` (`react`, `react-dom`, `tailwindcss`, `@tailwindcss/vite`) and `devDependencies` (ESLint stack, Vite, type definitions)
+* Reviewed the project running on **React 19.2.0** and **Vite 7.1.7**
+* Learned about the `allowScripts` field for explicitly permitting a dependency's install scripts (used here for `esbuild`) as a security/consent measure in newer npm tooling
+
+#### Reviewing the ESLint Flat Config (`eslint.config.js`)
+
+* Studied the modern **flat config** format using `defineConfig` and `globalIgnores` from `eslint/config`
+* Confirmed `dist` is globally ignored from linting
+* Reviewed the rule set applied to all `**/*.{js,jsx}` files:
+
+  * `js.configs.recommended` — base recommended JS rules
+  * `reactHooks.configs.flat.recommended` — enforces Rules of Hooks
+  * `reactRefresh.configs.vite` — keeps components compatible with Fast Refresh in Vite
+* Noted `languageOptions` sets browser globals and enables JSX parsing via `ecmaFeatures: { jsx: true }`
+
+#### Reviewing `index.html`
+
+* Confirmed the Vite entry point: a single `#root` div and a module script pointing to `/src/main.jsx`
+* Noted the favicon link and viewport meta tag used for responsive rendering
+
+#### Environment & Git Hygiene
+
+* Reviewed the project's `.env` file for environment-specific variables (kept out of version control)
+* Reviewed `.gitignore` to confirm build output and dependency folders (e.g. `node_modules`, `dist`) are excluded from Git tracking
+
+---
+
 ## 🛠️ Technologies Used
 
 | Technology        | Usage                                                |
 | ----------------- | ---------------------------------------------------- |
 | HTML5             | Structure and semantic markup                        |
 | CSS3              | Styling, layouts, and responsiveness                 |
-| Tailwind CSS      | Utility-first CSS framework                          |
+| Tailwind CSS      | Utility-first CSS framework (v4, integrated via Vite plugin) |
 | JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects, DOM, events, async programming, Fetch API, arrow functions, template literals, modules |
 | React.js          | Component-based UI development (via Vite)            |
-| Vite              | Fast React project scaffolding & build tool           |
+| Vite              | Fast React project scaffolding, dev server & build tool (v7) |
+| ESLint            | Flat-config linting for JS/JSX, React Hooks & Fast Refresh rules |
 | Node.js           | Running JavaScript in terminal                       |
 | Google Fonts      | Typography                                           |
 
@@ -608,7 +660,8 @@ Day 10 → DOM manipulation, element selection methods, event listeners + comple
 Day 11 → Synchronous vs Asynchronous JavaScript, Promises & Async/Await
 Day 12 → Fetch API & CRUD operations (GET, POST, PUT, DELETE) with async/await and .then()/.catch()
 Day 13 → Arrow functions, template literals, named & default exports/imports + React project setup with Vite (first component: Button.jsx)
-Day 14+ → Coming soon...
+Day 14 → Tailwind CSS v4 integrated into the Vite React project via @tailwindcss/vite, plus a full review of package.json, the ESLint flat config, index.html, and env/git configuration
+Day 15+ → Coming soon...
 ```
 
 ---
@@ -632,6 +685,7 @@ Day 14+ → Coming soon...
 * [x] Fetch API & CRUD Operations
 * [x] ES6 Advanced Concepts (Arrow Functions, Template Literals, Modules)
 * [x] React.js (project setup & first component)
+* [x] Tailwind CSS v4 + Vite plugin integration
 * [ ] Express.js
 * [ ] MongoDB
 * [ ] Full MERN Stack Projects
@@ -640,13 +694,13 @@ Day 14+ → Coming soon...
 
 ## ⭐ Progress Status
 
-**Current Progress:** Day 13 Completed
+**Current Progress:** Day 14 Completed
 
 ### Skills Learned So Far
 
 * HTML5
 * CSS3
-* Tailwind CSS
+* Tailwind CSS (v3 & v4)
 * JavaScript Basics
 * Operators
 * Conditionals
@@ -678,9 +732,10 @@ Day 14+ → Coming soon...
 * Named & Default Exports/Imports (ES Modules)
 * React.js project setup with Vite
 * Building React components (`Button.jsx`)
+* Tailwind CSS v4 setup via `@tailwindcss/vite`
+* ESLint flat config (`eslint/config`, React Hooks & React Refresh rules)
 
 ---
 
 *This repository is actively updated as my MERN Stack internship progresses. Every commit reflects a new learning milestone and practical implementation.*
 
-*Thank youu*
