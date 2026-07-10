@@ -1,11 +1,13 @@
+function Button() {
+  const handleClick = () => {
+    alert("Button was clicked!");
+  };
 
-
-const Button=()=>{
-    return(
-        <div>
-            <Button classname="w-10">Submitt</Button>
-        </div>
-    )
+  return (
+    <button onClick={handleClick}>
+      Click Me
+    </button>
+  );
 }
 
-export default Button
+export default Button;

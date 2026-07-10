@@ -1,15 +1,18 @@
-import React from 'react'
-import Button from './components/Button'
-let name='Darshana'
+import User from "./assets/components/User";
+import Button from "./assets/components/Button";
+import "./App.css";
 
-const App =() => {
-   return (
-    <div>
-      <h1 className=''>hello {name}</h1>
+function App() {
+  let name = "Darshana";
+  let surname = "Bhandari";
+
+  return (
+    <div className="app">
+      <h1>My First React App</h1>
+      <User name={name} surname={surname} />
+      <Button />
     </div>
-  
-)
-  }
+  );
+}
 
-  export default App
-  
+export default App;

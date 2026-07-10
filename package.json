@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Darshana-Bhandari/Internship#readme",
   "dependencies": {
-    "tailwindcss": "^4.3.1"
+    "@tailwindcss/vite": "^4.3.2",
+    "tailwindcss": "^4.3.2"
   }
 }
