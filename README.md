@@ -36,24 +36,27 @@ Internship/
 ├── package.json                 # Node.js project setup
 ├── package-lock.json            # Node.js dependency lock file
 ├── vite-project/                # Day 13 — React project scaffolded with Vite
+│   ├── node_modules/
+│   ├── public/
 │   ├── src/
 │   │   ├── assets/
 │   │   │   ├── components/
-│   │   │   │   └── Button.jsx   # Day 13 — First React component
+│   │   │   │   ├── Button.jsx   # Day 13/14 — Button component with onClick handler
+│   │   │   │   └── User.jsx     # Day 14 — Props-based component (name & surname)
 │   │   │   ├── hero.png
 │   │   │   ├── react.svg
 │   │   │   └── vite.svg
-│   │   ├── App.css
-│   │   ├── App.jsx
+│   │   ├── App.css              # Day 14 — Styling for the app shell & button
+│   │   ├── App.jsx              # Day 14 — Composes User & Button components
+│   │   ├── day13.js
 │   │   ├── index.css
 │   │   └── main.jsx
-│   ├── public/
 │   ├── .env
 │   ├── .gitignore
 │   ├── eslint.config.js         # Day 14 — Flat ESLint config w/ React Hooks + React Refresh rules
 │   ├── index.html               # Day 14 — Vite entry HTML (root div + main.jsx module script)
 │   ├── package.json             # Day 14 — Added Tailwind CSS v4 + @tailwindcss/vite plugin
-│   ├── package-lock.json
+│   ├── package-lock.json        # Day 14 — Reviewed lockfile for reproducible installs
 │   └── vite.config.js           # Day 14 — Registered @tailwindcss/vite plugin alongside React
 └── internship/                  # Additional internship files/resources
 ```
@@ -544,9 +547,9 @@ Learned modern ES6 syntax for writing shorter functions and cleaner strings, how
 
 ---
 
-### Day 14 — `vite.config.js` + `package.json` + `eslint.config.js` · *Tailwind CSS v4 Integration with Vite*
+### Day 14 — `vite.config.js` + `package.json` + `eslint.config.js` · *Tailwind CSS v4 Integration, React Components & Props*
 
-Configured the **`vite-project`** React app to use **Tailwind CSS v4**, wiring it in directly through Vite's plugin system instead of the older PostCSS/`tailwind.config.js` setup, and reviewed the rest of the project's tooling configuration.
+Configured the **`vite-project`** React app to use **Tailwind CSS v4**, wiring it in directly through Vite's plugin system instead of the older PostCSS/`tailwind.config.js` setup, reviewed the rest of the project's tooling configuration, and expanded the React app with reusable, props-driven components.
 
 #### Tailwind CSS v4 via the Vite Plugin
 
@@ -572,6 +575,13 @@ Configured the **`vite-project`** React app to use **Tailwind CSS v4**, wiring i
 * Reviewed the project running on **React 19.2.0** and **Vite 7.1.7**
 * Learned about the `allowScripts` field for explicitly permitting a dependency's install scripts (used here for `esbuild`) as a security/consent measure in newer npm tooling
 
+#### Reviewing `package-lock.json`
+
+* Confirmed `lockfileVersion: 3`, the current npm lockfile format used to guarantee reproducible installs
+* Verified the top-level `dependencies`/`devDependencies` block in the lockfile mirrors `package.json` exactly (`@tailwindcss/vite`, `react`, `react-dom`, `tailwindcss` as runtime deps; ESLint stack + Vite as dev deps)
+* Explored how the lockfile pins **exact resolved versions and integrity hashes** for every transitive package (e.g. the `@babel/*` helper packages pulled in indirectly by the Vite/React/ESLint toolchain), which keeps installs identical across machines
+* Learned why committing `package-lock.json` matters for a team project: it prevents "works on my machine" issues caused by minor version drift in nested dependencies
+
 #### Reviewing the ESLint Flat Config (`eslint.config.js`)
 
 * Studied the modern **flat config** format using `defineConfig` and `globalIgnores` from `eslint/config`
@@ -590,8 +600,35 @@ Configured the **`vite-project`** React app to use **Tailwind CSS v4**, wiring i
 
 #### Environment & Git Hygiene
 
-* Reviewed the project's `.env` file for environment-specific variables (kept out of version control)
-* Reviewed `.gitignore` to confirm build output and dependency folders (e.g. `node_modules`, `dist`) are excluded from Git tracking
+* Reviewed the project's `.env` file for environment-specific variables — currently empty, kept as a placeholder for future secrets/config (e.g. API base URLs, keys) and correctly excluded from version control
+* Reviewed `.gitignore` in detail and confirmed it excludes several categories of files from Git tracking:
+
+  * **Build output & dependencies**: `node_modules`, `dist`, `dist-ssr`
+  * **Log files**: `logs`, `*.log`, `npm-debug.log*`, `yarn-debug.log*`, `yarn-error.log*`, `pnpm-debug.log*`, `lerna-debug.log*`
+  * **Editor/IDE files**: `.vscode/*` (while still tracking `.vscode/extensions.json` for shared editor recommendations), `.idea`, `*.suo`, `*.ntvs*`, `*.njsproj`, `*.sln`, `*.sw?`
+  * **OS files**: `.DS_Store`
+  * **Local/env files**: `*.local`, `.env`
+* Learned that keeping `.vscode/extensions.json` un-ignored is a common convention so a team can still share recommended VS Code extensions even while ignoring personal editor settings
+
+#### Building Out React Components — Props, Composition & Styling
+
+Expanded the `vite-project` React app beyond the single `Button.jsx` component from Day 13 by building a small component tree with props and wiring everything together in `App.jsx`.
+
+* **`User.jsx`** — created a new functional component inside `src/assets/components/` that accepts `name` and `surname` as **props** (destructured directly in the function signature: `function User({ name, surname })`) and renders them inside `<h2>`/`<h3>` tags
+* **`Button.jsx`** — refined the button component to define a `handleClick` function and wire it up with `onClick={handleClick}`, showing a browser `alert("Button was clicked!")` when the button is clicked — first hands-on practice with **event handling in React** (as opposed to `addEventListener` in vanilla JS from Day 10)
+* **`App.jsx`** — updated the root component to:
+
+  * Import both `User` and `Button` from `./assets/components/`
+  * Import `App.css` for styling
+  * Declare local variables (`name`, `surname`) and pass them down to `User` as props: `<User name={name} surname={surname} />`
+  * Render `Button` alongside `User` inside a wrapping `<div className="app">`
+  * Learned this demonstrates **component composition** — building a UI out of small, focused components combined inside a parent component
+* **`App.css`** — added custom styling for the app shell and button:
+
+  * `.app` class centers text, sets a `sans-serif` font, and adds top margin for the page shell
+  * `button` styles: padding, font size, pointer cursor, rounded corners, no border, and a custom indigo background (`#4f46e5`) with light blue text (`rgb(188, 216, 255)`)
+  * `button:hover` styles: darkens the background to a deeper indigo (`#4338ca`) for a hover feedback effect
+  * Reinforced that plain CSS files can be imported directly into a component (`import "./App.css"`) alongside/instead of Tailwind utility classes
 
 ---
 
@@ -603,7 +640,7 @@ Configured the **`vite-project`** React app to use **Tailwind CSS v4**, wiring i
 | CSS3              | Styling, layouts, and responsiveness                 |
 | Tailwind CSS      | Utility-first CSS framework (v4, integrated via Vite plugin) |
 | JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects, DOM, events, async programming, Fetch API, arrow functions, template literals, modules |
-| React.js          | Component-based UI development (via Vite)            |
+| React.js          | Component-based UI development, props, composition, and event handling (via Vite) |
 | Vite              | Fast React project scaffolding, dev server & build tool (v7) |
 | ESLint            | Flat-config linting for JS/JSX, React Hooks & Fast Refresh rules |
 | Node.js           | Running JavaScript in terminal                       |
@@ -660,7 +697,7 @@ Day 10 → DOM manipulation, element selection methods, event listeners + comple
 Day 11 → Synchronous vs Asynchronous JavaScript, Promises & Async/Await
 Day 12 → Fetch API & CRUD operations (GET, POST, PUT, DELETE) with async/await and .then()/.catch()
 Day 13 → Arrow functions, template literals, named & default exports/imports + React project setup with Vite (first component: Button.jsx)
-Day 14 → Tailwind CSS v4 integrated into the Vite React project via @tailwindcss/vite, plus a full review of package.json, the ESLint flat config, index.html, and env/git configuration
+Day 14 → Tailwind CSS v4 integrated into the Vite React project via @tailwindcss/vite; full review of package.json, package-lock.json, the ESLint flat config, index.html, and env/git configuration; built out User.jsx & Button.jsx with props and event handling, composed them in App.jsx, and styled the app with App.css
 Day 15+ → Coming soon...
 ```
 
@@ -686,6 +723,7 @@ Day 15+ → Coming soon...
 * [x] ES6 Advanced Concepts (Arrow Functions, Template Literals, Modules)
 * [x] React.js (project setup & first component)
 * [x] Tailwind CSS v4 + Vite plugin integration
+* [x] React props & component composition
 * [ ] Express.js
 * [ ] MongoDB
 * [ ] Full MERN Stack Projects
@@ -731,11 +769,16 @@ Day 15+ → Coming soon...
 * Template Literals
 * Named & Default Exports/Imports (ES Modules)
 * React.js project setup with Vite
-* Building React components (`Button.jsx`)
+* Building React components (`Button.jsx`, `User.jsx`)
+* React props & component composition (`App.jsx`)
+* React event handling (`onClick`)
 * Tailwind CSS v4 setup via `@tailwindcss/vite`
+* Custom component styling with plain CSS (`App.css`)
 * ESLint flat config (`eslint/config`, React Hooks & React Refresh rules)
+* npm lockfiles (`package-lock.json`) and reproducible installs
 
 ---
 
 *This repository is actively updated as my MERN Stack internship progresses. Every commit reflects a new learning milestone and practical implementation.*
 
+*Thank youu*
