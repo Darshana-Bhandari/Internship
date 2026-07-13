@@ -41,14 +41,14 @@ Internship/
 │   ├── src/
 │   │   ├── assets/
 │   │   │   ├── components/
-│   │   │   │   ├── Button.jsx   # Day 13/14 — Button component with onClick handler
-│   │   │   │   └── User.jsx     # Day 14 — Props-based component (name & surname)
+│   │   │   │   ├── Button.jsx   # Day 14 — Button component with onClick handler
+│   │   │   │   └── User.jsx     # Day 15 — Props-based component, destructuring, default values & conditional rendering
 │   │   │   ├── hero.png
 │   │   │   ├── react.svg
 │   │   │   └── vite.svg
 │   │   ├── App.css              # Day 14 — Styling for the app shell & button
-│   │   ├── App.jsx              # Day 14 — Composes User & Button components
-│   │   ├── day13.js
+│   │   ├── App.jsx              # Day 15 — Composes User & Button components, Day 15 Stopwatch example using useState & useEffect
+│   │   ├── day14&15.js          # Day 15 — useState & useEffect notes and practice
 │   │   ├── index.css
 │   │   └── main.jsx
 │   ├── .env
@@ -634,6 +634,64 @@ Expanded the `vite-project` React app beyond the single `Button.jsx` component f
 
 ---
 
+### Day 15 — `User.jsx` + `App.jsx` + `day14&15.js` · *Props Destructuring, Conditional Rendering & React Hooks*
+
+Went deeper into props by learning destructuring with default values and conditional rendering, then moved into React Hooks — `useState` and `useEffect` — and built a working Stopwatch component.
+
+#### `User.jsx` — Props Destructuring & Conditional Rendering
+
+* Refactored `User` to destructure props directly out of `props` inside the function body instead of the function signature:
+
+  ```js
+  const { name = "Unknown User", age, college, Semester, semester, skills = [] } = props;
+  ```
+* Learned how to give props **default values** (`name = "Unknown User"`, `skills = []`) so the component doesn't break when a prop isn't passed
+* Handled a prop that could be passed with either casing by accepting both `Semester` and `semester` and picking whichever one is defined:
+
+  ```js
+  const currentSemester = Semester || semester;
+  ```
+* Learned **conditional rendering** using the `&&` operator — a block only renders if the value on the left is truthy:
+
+  * `{age && <p>...</p>}` — only shows Age if it was passed
+  * `{college && <h2>...</h2>}` — only shows College if it was passed
+  * `{currentSemester && <h3>...</h3>}` — only shows Semester if either version of the prop was passed
+* Rendered the `skills` array using `map()` inside a `<ul>`, giving each `<li>` a `key` from its index
+* Used a **ternary operator** to conditionally render either the skills list or a fallback `"No skills provided"` message depending on whether `skills.length > 0`
+* Styled the component using Tailwind utility classes (`shadow-lg`, `rounded-2xl`, `border`, background/text colors, spacing utilities)
+
+#### React Hooks — `useState` & `useEffect`
+
+* Learned that `useState` is a React Hook that adds state to a functional component, and returns an array with the current value and a setter function:
+
+  ```js
+  const [count, setCount] = useState(0);
+  ```
+* Learned that calling the setter function tells React to re-render the component with the updated state
+* Learned that `useEffect` lets a functional component run **side effects**, and behaves differently depending on its dependency array:
+
+  * No dependency array → runs after every render
+  * Empty dependency array `[]` → runs once, after the component mounts
+  * Dependency array with values `[count]` → runs whenever one of those values changes
+* Reviewed common real-world use cases for `useEffect`: fetching data from APIs, updating the document title, controlling timers (`setTimeout`/`setInterval`), adding/removing event listeners, and syncing with external/browser APIs
+
+#### Counter Example (kept commented as reference)
+
+* Built a simple `Counter` component using `useState` with an `increase()` function that calls `setCount(count + 1)` on every button click
+* Kept this commented out in the file as a quick reference for basic `useState` usage
+
+#### Stopwatch Example — `App.jsx`
+
+* Built a working **Stopwatch** component using both `useState` and `useEffect` together:
+
+  * `seconds` state tracks the elapsed time, `running` state tracks whether the stopwatch is active
+  * `useEffect` starts a `setInterval` that increments `seconds` every 1000ms whenever `running` is `true`, and depends on `[running]` so it re-runs whenever that value changes
+  * Used the **cleanup function** (`return () => clearInterval(timer)`) to clear the previous interval before starting a new one / when the component unmounts, preventing multiple intervals from stacking up
+  * Added **Start** and **Stop** buttons that call `setRunning(true)` and `setRunning(false)` respectively
+* Learned why the functional update form `setSeconds((prev) => prev + 1)` is used inside `setInterval` — it always works off the latest state instead of a stale closed-over value
+
+---
+
 ## 🛠️ Technologies Used
 
 | Technology        | Usage                                                |
@@ -642,7 +700,7 @@ Expanded the `vite-project` React app beyond the single `Button.jsx` component f
 | CSS3              | Styling, layouts, and responsiveness                 |
 | Tailwind CSS      | Utility-first CSS framework (v4, integrated via Vite plugin) |
 | JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects, DOM, events, async programming, Fetch API, arrow functions, template literals, modules |
-| React.js          | Component-based UI development, props, composition, and event handling (via Vite) |
+| React.js          | Component-based UI development, props, destructuring, conditional rendering, composition, event handling & Hooks (`useState`, `useEffect`) via Vite |
 | Vite              | Fast React project scaffolding, dev server & build tool (v7) |
 | ESLint            | Flat-config linting for JS/JSX, React Hooks & Fast Refresh rules |
 | Node.js           | Running JavaScript in terminal                       |
@@ -700,7 +758,8 @@ Day 11 → Synchronous vs Asynchronous JavaScript, Promises & Async/Await
 Day 12 → Fetch API & CRUD operations (GET, POST, PUT, DELETE) with async/await and .then()/.catch()
 Day 13 → Arrow functions, template literals, named & default exports/imports + React project setup with Vite (first component: Button.jsx)
 Day 14 → Tailwind CSS v4 integrated into the Vite React project via @tailwindcss/vite; full review of package.json, package-lock.json, the ESLint flat config, index.html, and env/git configuration; built out User.jsx & Button.jsx with props and event handling, composed them in App.jsx, and styled the app with App.css
-Day 15+ → Coming soon...
+Day 15 → Props destructuring with default values & conditional rendering in User.jsx; learned React Hooks (useState & useEffect); built a Counter example and a working Stopwatch component (Start/Stop) with interval cleanup in App.jsx
+Day 16+ → Coming soon...
 ```
 
 ---
@@ -726,6 +785,8 @@ Day 15+ → Coming soon...
 * [x] React.js (project setup & first component)
 * [x] Tailwind CSS v4 + Vite plugin integration
 * [x] React props & component composition
+* [x] Props destructuring & conditional rendering
+* [x] React Hooks (useState & useEffect)
 * [ ] Express.js
 * [ ] MongoDB
 * [ ] Full MERN Stack Projects
@@ -734,7 +795,7 @@ Day 15+ → Coming soon...
 
 ## ⭐ Progress Status
 
-**Current Progress:** Day 14 Completed
+**Current Progress:** Day 15 Completed
 
 ### Skills Learned So Far
 
@@ -778,6 +839,11 @@ Day 15+ → Coming soon...
 * Custom component styling with plain CSS (`App.css`)
 * ESLint flat config (`eslint/config`, React Hooks & React Refresh rules)
 * npm lockfiles (`package-lock.json`) and reproducible installs
+* Props destructuring with default values
+* Conditional rendering (`&&` and ternary operators)
+* React Hooks — `useState`
+* React Hooks — `useEffect` (dependency arrays & cleanup functions)
+* Building a Stopwatch with `setInterval`/`clearInterval`
 
 ---
 
