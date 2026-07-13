@@ -629,6 +629,8 @@ Expanded the `vite-project` React app beyond the single `Button.jsx` component f
   * `button` styles: padding, font size, pointer cursor, rounded corners, no border, and a custom indigo background (`#4f46e5`) with light blue text (`rgb(188, 216, 255)`)
   * `button:hover` styles: darkens the background to a deeper indigo (`#4338ca`) for a hover feedback effect
   * Reinforced that plain CSS files can be imported directly into a component (`import "./App.css"`) alongside/instead of Tailwind utility classes
+* Reviewed the project's `.env` file for environment-specific variables (kept out of version control)
+* Reviewed `.gitignore` to confirm build output and dependency folders (e.g. `node_modules`, `dist`) are excluded from Git tracking
 
 ---
 
