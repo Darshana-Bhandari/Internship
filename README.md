@@ -41,14 +41,21 @@ Internship/
 │   ├── src/
 │   │   ├── assets/
 │   │   │   ├── components/
-│   │   │   │   ├── Button.jsx   # Day 14 — Button component with onClick handler
-│   │   │   │   └── User.jsx     # Day 15 — Props-based component, destructuring, default values & conditional rendering
+│   │   │   │   ├── Button.jsx    # Day 14 — Button component with onClick handler
+│   │   │   │   ├── User.jsx      # Day 15 — Props-based component, destructuring, default values & conditional rendering
+│   │   │   │   ├── Menu.jsx      # Day 16 — Consumes UserContext, renders Profile
+│   │   │   │   ├── Navbar.jsx    # Day 16 — Wraps and renders Menu
+│   │   │   │   ├── Profile.jsx   # Day 16 — Consumes UserContext, displays welcome message
+│   │   │   │   └── Timer.jsx     # Day 16 — useEffect mount/update/unmount example
+│   │   │   ├── context/
+│   │   │   │   └── UserContext.jsx  # Day 16 — createContext() setup for Context API
 │   │   │   ├── hero.png
 │   │   │   ├── react.svg
 │   │   │   └── vite.svg
 │   │   ├── App.css              # Day 14 — Styling for the app shell & button
-│   │   ├── App.jsx              # Day 15 — Composes User & Button components, Day 15 Stopwatch example using useState & useEffect
+│   │   ├── App.jsx              # Day 16 — React Context API example (UserContext.Provider wrapping Navbar) + commented-out Lifecycle/Timer example
 │   │   ├── day14&15.js          # Day 15 — useState & useEffect notes and practice
+│   │   ├── day14,15&16.js       # Day 16 — React Lifecycle & Context API notes and practice
 │   │   ├── index.css
 │   │   └── main.jsx
 │   ├── .env
@@ -692,6 +699,70 @@ Went deeper into props by learning destructuring with default values and conditi
 
 ---
 
+### Day 16 — `Timer.jsx` + `context/UserContext.jsx` + `Navbar.jsx` + `Menu.jsx` + `Profile.jsx` + `App.jsx` · *React Lifecycle & Context API*
+
+Learned about the React component lifecycle (mounting, updating, unmounting) using `useEffect`, and learned how to share data across components without prop drilling using the **Context API**. Reorganized the `components/` folder with new components and added a dedicated `context/` folder.
+
+#### React Lifecycle — `Timer.jsx`
+
+* Built a `Timer` component that uses `useState` to track `seconds` and `useEffect` to start a `setInterval` that increments `seconds` every 1000ms
+* Used the functional update form `setSeconds((prev) => prev + 1)` inside the interval, consistent with the Stopwatch pattern from Day 15
+* Passed an **empty dependency array `[]`** to `useEffect` so the interval is set up only once, right after the component **mounts**
+* Returned a **cleanup function** from `useEffect` (`return () => { clearInterval(timer); console.log(" component unMounted") }`) that clears the interval and logs a message when the component **unmounts**
+* Learned the three lifecycle phases in the context of this example:
+
+  * **Mount** — component is created and added to the DOM (interval starts, `Timer` first appears)
+  * **Update** — component re-renders when `seconds` state changes every second
+  * **Unmount** — component is removed from the DOM (interval is cleared to avoid memory leaks / duplicate timers)
+* Wrote a commented-out lifecycle demo in `App.jsx` where a `showTimer` boolean state, toggled by a button, conditionally renders `{showTimer && <Timer />}` — clicking "Start Timer" mounts `Timer`, clicking "Stop Timer" unmounts it
+
+#### React Context API — `context/UserContext.jsx`
+
+* Created a new `context/` folder inside `src/` to keep context files separate from regular components
+* Built `UserContext.jsx` using `createContext()` from React:
+
+  ```js
+  import { createContext } from "react";
+
+  const UserContext = createContext();
+
+  export default UserContext;
+  ```
+* Learned that the Context API lets data be shared across components **without passing props manually through every level** (avoiding "prop drilling")
+
+#### Providing Context — `App.jsx`
+
+* Imported `UserContext` and the `Navbar` component into `App.jsx`
+* Declared a `name` variable (`"Darshana"`) to share across the component tree
+* Wrapped `Navbar` in a `UserContext.Provider`, passing `name` as the `value`:
+
+  ```jsx
+  <UserContext.Provider value={name}>
+    <Navbar />
+  </UserContext.Provider>
+  ```
+* Learned that everything rendered **inside** the `Provider` — no matter how deeply nested — can read the shared `value`
+
+#### Consuming Context — `Navbar.jsx`, `Menu.jsx` & `Profile.jsx`
+
+* Built a small nested component chain to prove context works across multiple levels without passing props at each step:
+
+  * **`Navbar.jsx`** — a simple wrapper component that renders `Menu`, without needing to know about `UserContext` at all
+  * **`Menu.jsx`** — imports `useContext` and `UserContext`, calls `useContext(UserContext)` to read the shared `name` value directly, renders `Profile`, and displays `"welcome {user1} in menu"`
+  * **`Profile.jsx`** — also calls `useContext(UserContext)` independently and displays `"welcome {user}"`
+* Learned that both `Menu` and `Profile` can consume the **same** context value even though neither received it as a prop from its parent — this is the core benefit of the Context API over prop drilling
+* Confirmed the full render tree for today's example: `App` → `UserContext.Provider` → `Navbar` → `Menu` → `Profile`, with `Menu` and `Profile` both pulling `"Darshana"` straight from context
+
+#### File Organization
+
+* Split components across two folders inside `src/`:
+
+  * `assets/components/` — `Button.jsx`, `User.jsx`, `Menu.jsx`, `Navbar.jsx`, `Profile.jsx`, `Timer.jsx`
+  * `context/` — `UserContext.jsx`
+* Practiced relative import paths across folders, e.g. `import UserContext from '../context/userContext.jsx'` from inside `components/`
+
+---
+
 ## 🛠️ Technologies Used
 
 | Technology        | Usage                                                |
@@ -700,7 +771,7 @@ Went deeper into props by learning destructuring with default values and conditi
 | CSS3              | Styling, layouts, and responsiveness                 |
 | Tailwind CSS      | Utility-first CSS framework (v4, integrated via Vite plugin) |
 | JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects, DOM, events, async programming, Fetch API, arrow functions, template literals, modules |
-| React.js          | Component-based UI development, props, destructuring, conditional rendering, composition, event handling & Hooks (`useState`, `useEffect`) via Vite |
+| React.js          | Component-based UI development, props, destructuring, conditional rendering, composition, event handling, Hooks (`useState`, `useEffect`), lifecycle & Context API via Vite |
 | Vite              | Fast React project scaffolding, dev server & build tool (v7) |
 | ESLint            | Flat-config linting for JS/JSX, React Hooks & Fast Refresh rules |
 | Node.js           | Running JavaScript in terminal                       |
@@ -759,7 +830,8 @@ Day 12 → Fetch API & CRUD operations (GET, POST, PUT, DELETE) with async/await
 Day 13 → Arrow functions, template literals, named & default exports/imports + React project setup with Vite (first component: Button.jsx)
 Day 14 → Tailwind CSS v4 integrated into the Vite React project via @tailwindcss/vite; full review of package.json, package-lock.json, the ESLint flat config, index.html, and env/git configuration; built out User.jsx & Button.jsx with props and event handling, composed them in App.jsx, and styled the app with App.css
 Day 15 → Props destructuring with default values & conditional rendering in User.jsx; learned React Hooks (useState & useEffect); built a Counter example and a working Stopwatch component (Start/Stop) with interval cleanup in App.jsx
-Day 16+ → Coming soon...
+Day 16 → React component lifecycle (mount/update/unmount) with Timer.jsx; introduced the Context API with a new context/ folder (UserContext.jsx); wrapped Navbar in UserContext.Provider in App.jsx; consumed shared context data in nested Menu.jsx and Profile.jsx components without prop drilling
+Day 17+ → Coming soon...
 ```
 
 ---
@@ -787,6 +859,8 @@ Day 16+ → Coming soon...
 * [x] React props & component composition
 * [x] Props destructuring & conditional rendering
 * [x] React Hooks (useState & useEffect)
+* [x] React Component Lifecycle (mount, update, unmount)
+* [x] React Context API
 * [ ] Express.js
 * [ ] MongoDB
 * [ ] Full MERN Stack Projects
@@ -795,7 +869,7 @@ Day 16+ → Coming soon...
 
 ## ⭐ Progress Status
 
-**Current Progress:** Day 15 Completed
+**Current Progress:** Day 16 Completed
 
 ### Skills Learned So Far
 
@@ -844,6 +918,9 @@ Day 16+ → Coming soon...
 * React Hooks — `useState`
 * React Hooks — `useEffect` (dependency arrays & cleanup functions)
 * Building a Stopwatch with `setInterval`/`clearInterval`
+* React Component Lifecycle — mounting, updating & unmounting
+* React Context API — `createContext()`, `Context.Provider`, `useContext()`
+* Sharing data across nested components without prop drilling
 
 ---
 
