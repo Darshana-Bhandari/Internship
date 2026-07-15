@@ -1,7 +1,21 @@
 
-// Day 14 - React Components & Props
+import React from "react";
+import UserContext from "./assets/context/UserContext";
+import Navbar from "./assets/components/Navbar";
 
-/*
+const App = () => {
+  const name = "Darshana";
+
+  return (
+    <UserContext.Provider value={name}>
+      <Navbar />
+    </UserContext.Provider>
+  );
+};
+
+export default App;
+
+const _legacy = `
 import React from "react";
 import User from "./assets/components/User";
 import Button from "./assets/components/Button";
@@ -128,8 +142,8 @@ export default App;
 // ------------------------------------------
 
 import React from "react";
-import UserContext from "./context/userContext";
-import Navbar from "./components/Navbar";
+import UserContext from "./assets/context/UserContext";
+import Navbar from "./assets/components/Navbar";
 
 const App = () => {
   // Data that will be shared across components
@@ -176,8 +190,10 @@ Child components can access this value using
 the useContext() hook.
 */
 
-
+/*
 javascript
+
+
 /// Day 17 - Fetch API in React
 
 
@@ -476,4 +492,6 @@ https://jsonplaceholder.typicode.com/posts
 // 8. Use POST to add new data.
 // 9. Use PUT/PATCH to update data.
 // 10. Use DELETE to remove data.
-```
+`;
+
+
