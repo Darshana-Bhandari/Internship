@@ -53,7 +53,7 @@ Internship/
 │   │   │   ├── react.svg
 │   │   │   └── vite.svg
 │   │   ├── App.css              # Day 14 — Styling for the app shell & button
-│   │   ├── App.jsx              # Day 16 — React Context API example (UserContext.Provider wrapping Navbar) + commented-out Lifecycle/Timer example
+│   │   ├── App.jsx              # Day 14,15,16&17 — React Context API example (UserContext.Provider wrapping Navbar) + commented-out Lifecycle/Timer example
 │   │   ├── day14,15,16&17.js    # Day 17 — Fetch API in React notes and practice (also carries Day 14-16 notes)
 │   │   ├── index.css
 │   │   └── main.jsx
