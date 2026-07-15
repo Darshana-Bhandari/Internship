@@ -33,7 +33,6 @@ Internship/
 ├── day13.html                   # Day 13 — HTML shell linking day13.js
 ├── day13.js                     # Day 13 — Arrow Functions, Template Literals, Named & Default Exports
 ├── day13_import.js              # Day 13 — Importing named exports (add, sub) from day13.js
-├── emaple.md                    # Day 17 — Component tree planning notes (App/Navbar/Home/About/Features)
 ├── package.json                 # Node.js project setup
 ├── package-lock.json            # Node.js dependency lock file
 ├── vite-project/                # Day 13 — React project scaffolded with Vite
@@ -60,6 +59,7 @@ Internship/
 │   │   └── main.jsx
 │   ├── .env
 │   ├── .gitignore
+│   ├── emaple.md                # Day 17 — Component tree planning notes (App/Navbar/Home/About/Features)
 │   ├── eslint.config.js         # Day 14 — Flat ESLint config w/ React Hooks + React Refresh rules
 │   ├── index.html               # Day 14 — Vite entry HTML (root div + main.jsx module script)
 │   ├── package.json             # Day 14 — Added Tailwind CSS v4 + @tailwindcss/vite plugin
@@ -763,7 +763,7 @@ Learned about the React component lifecycle (mounting, updating, unmounting) usi
 
 ---
 
-### Day 17 — `day14,15,16&17.js` + `Profile.jsx` + `emaple.md` · *Fetch API in React*
+### Day 17 — `day14,15,16&17.js` + `Profile.jsx` + `vite-project/emaple.md` · *Fetch API in React*
 
 Learned how to fetch data from an external server inside a React component by combining the Fetch API (from Day 12) with `useState` and `useEffect` (from Day 15), and sketched out a component-tree plan for an upcoming multi-page layout.
 
@@ -942,7 +942,7 @@ export default Profile
 
 #### `emaple.md` — Component Tree Planning
 
-* Created a new planning file, `emaple.md`, to sketch out the component structure for an upcoming multi-section app before writing any code:
+* Created a new planning file, `emaple.md`, at the root of `vite-project` (alongside `eslint.config.js`, `index.html`, `package.json`) to sketch out the component structure for an upcoming multi-section app before writing any code:
 
   ```text
   App() - Navbar() - Home(), Aboutuse(), Features()
