@@ -33,6 +33,7 @@ Internship/
 ├── day13.html                   # Day 13 — HTML shell linking day13.js
 ├── day13.js                     # Day 13 — Arrow Functions, Template Literals, Named & Default Exports
 ├── day13_import.js              # Day 13 — Importing named exports (add, sub) from day13.js
+├── emaple.md                    # Day 17 — Component tree planning notes (App/Navbar/Home/About/Features)
 ├── package.json                 # Node.js project setup
 ├── package-lock.json            # Node.js dependency lock file
 ├── vite-project/                # Day 13 — React project scaffolded with Vite
@@ -45,7 +46,7 @@ Internship/
 │   │   │   │   ├── User.jsx      # Day 15 — Props-based component, destructuring, default values & conditional rendering
 │   │   │   │   ├── Menu.jsx      # Day 16 — Consumes UserContext, renders Profile
 │   │   │   │   ├── Navbar.jsx    # Day 16 — Wraps and renders Menu
-│   │   │   │   ├── Profile.jsx   # Day 16 — Consumes UserContext, displays welcome message
+│   │   │   │   ├── Profile.jsx   # Day 16/17 — Consumes UserContext, displays welcome message / age
 │   │   │   │   └── Timer.jsx     # Day 16 — useEffect mount/update/unmount example
 │   │   │   ├── context/
 │   │   │   │   └── UserContext.jsx  # Day 16 — createContext() setup for Context API
@@ -54,8 +55,7 @@ Internship/
 │   │   │   └── vite.svg
 │   │   ├── App.css              # Day 14 — Styling for the app shell & button
 │   │   ├── App.jsx              # Day 16 — React Context API example (UserContext.Provider wrapping Navbar) + commented-out Lifecycle/Timer example
-│   │   ├── day14&15.js          # Day 15 — useState & useEffect notes and practice
-│   │   ├── day14,15&16.js       # Day 16 — React Lifecycle & Context API notes and practice
+│   │   ├── day14,15,16&17.js    # Day 17 — Fetch API in React notes and practice (also carries Day 14-16 notes)
 │   │   ├── index.css
 │   │   └── main.jsx
 │   ├── .env
@@ -763,6 +763,197 @@ Learned about the React component lifecycle (mounting, updating, unmounting) usi
 
 ---
 
+### Day 17 — `day14,15,16&17.js` + `Profile.jsx` + `emaple.md` · *Fetch API in React*
+
+Learned how to fetch data from an external server inside a React component by combining the Fetch API (from Day 12) with `useState` and `useEffect` (from Day 15), and sketched out a component-tree plan for an upcoming multi-page layout.
+
+#### What is an API?
+
+* Learned that **API (Application Programming Interface)** allows two applications to communicate with each other
+* Understood that APIs are used to get data from a server, following the flow: `React App <------> API Server`
+
+#### What is the Fetch API?
+
+* Learned that `fetch()` is a built-in JavaScript method used to get data from an API
+* Reviewed the basic syntax:
+
+  ```js
+  fetch("API_URL")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    });
+  ```
+
+#### Why Use the Fetch API?
+
+* Get data from the server
+* Display dynamic data
+* Connect frontend with backend
+* Update UI with live data
+
+#### `useEffect` + Fetch API
+
+* Learned that `useEffect()` is used for fetching because **fetching data is a side effect**
+* Passed an empty dependency array `[]` so the fetch runs once, right after the component mounts:
+
+  ```js
+  useEffect(() => {
+    fetch("API_URL")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }, []);
+  ```
+
+#### `useState` + Fetch API
+
+* Learned that `useState` is used to store the fetched data:
+
+  ```js
+  const [users, setUsers] = useState([]);
+  ```
+
+#### Steps of the Fetch API (in React)
+
+1. Create state using `useState()`
+2. Use `useEffect()`
+3. Call `fetch()`
+4. Convert the response into JSON
+5. Store the data using `setState()`
+6. Display the data using `map()`
+
+#### Example — `Users` Component
+
+Built a `Users` component that fetches a list of users from the JSONPlaceholder API and renders them:
+
+```jsx
+import React, { useEffect, useState } from "react";
+
+const Users = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((data) => {
+        setUsers(data);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h1>Users List</h1>
+
+      {users.map((user) => (
+        <div key={user.id}>
+          <h2>{user.name}</h2>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Users;
+```
+
+* Fetched data from `https://jsonplaceholder.typicode.com/users` inside `useEffect`
+* Stored the response in `users` state using `setUsers(data)`
+* Rendered each user's `name` and `email` with `map()`, giving each item a `key` from `user.id`
+
+#### Loading State
+
+* Learned to track a `loading` state so the UI can show a loading indicator while data is being fetched:
+
+  ```js
+  const [loading, setLoading] = useState(true);
+  ```
+* `loading` stays `true` while data is fetching, and gets set to `false` once the data has arrived
+
+#### Error Handling
+
+* Learned to track an `error` state so failed requests can be handled gracefully:
+
+  ```js
+  const [error, setError] = useState(null);
+  ```
+* If fetching fails, the error gets stored inside `setError()` instead of crashing the component
+
+#### Common Use Cases of the Fetch API
+
+* Users List
+* Products
+* Weather App
+* News App
+* Dashboard
+* Blog Website
+
+#### Revisited: Async/Await, try...catch & CRUD (from Day 11 & Day 12)
+
+Reinforced earlier concepts alongside the new React-specific fetch pattern:
+
+* **`async` / `await`** — `async` marks a function as asynchronous, and `await` pauses execution until a Promise resolves
+* **`try...catch`** — `try` runs the code, `catch` handles any errors that occur
+* **CRUD** — Create, Read, Update, Delete, the four operations commonly performed against an API
+* **HTTP Methods** — `GET` (read), `POST` (create), `PUT` (update), `PATCH` (update specific fields), `DELETE` (remove)
+* **GET Request** — fetches (reads) data from the server
+* **POST Request** — creates new data, sending a JSON body with the `Content-Type: application/json` header
+* **`JSON.stringify()`** — converts a JavaScript object into a JSON string before sending it to the server in a request body
+* **Controlled Inputs** — used `useState` to control form inputs (`title`, `body`) with `value` and `onChange={(e) => setTitle(e.target.value)}`
+* **JSONPlaceholder API** — reviewed the free fake REST API (`https://jsonplaceholder.typicode.com/`) used for learning and testing, e.g. `https://jsonplaceholder.typicode.com/posts`
+
+#### Complete Fetch API Flow (Reference)
+
+1. Create state using `useState()`
+2. Create an async function
+3. Use `fetch()` to request data
+4. Use `await response.json()`
+5. Store the data using `setState()`
+6. Display data using `map()`
+7. Handle errors using `try...catch`
+8. Use `POST` to add new data
+9. Use `PUT`/`PATCH` to update data
+10. Use `DELETE` to remove data
+
+#### `Profile.jsx` — Updated for Day 17
+
+Updated the `Profile` component (originally built on Day 16) to read a new value from `UserContext`:
+
+```jsx
+import React, { useContext } from 'react'
+import UserContext from '../context/userContext'
+
+const Profile = () => {
+  const age = useContext(UserContext)
+  return (
+    <>
+      <h1>MY age is {age}</h1>
+    </>
+  )
+}
+
+export default Profile
+```
+
+* Reused `useContext(UserContext)` from Day 16, now reading an `age` value instead of `name`
+* Reinforced that any value can be passed through `UserContext.Provider`, and any consuming component can pull it out with `useContext()`
+
+#### `emaple.md` — Component Tree Planning
+
+* Created a new planning file, `emaple.md`, to sketch out the component structure for an upcoming multi-section app before writing any code:
+
+  ```text
+  App() - Navbar() - Home(), Aboutuse(), Features()
+  Home() --- Buttton()
+  ```
+* Planned that `App` will render a `Navbar` alongside `Home`, `Aboutuse` (About Us), and `Features` sections
+* Planned that `Home` will render a `Button` component nested inside it
+* Learned the value of sketching a component tree on paper/markdown **before** implementation, to plan composition and prop flow ahead of time
+
+---
+
 ## 🛠️ Technologies Used
 
 | Technology        | Usage                                                |
@@ -771,7 +962,7 @@ Learned about the React component lifecycle (mounting, updating, unmounting) usi
 | CSS3              | Styling, layouts, and responsiveness                 |
 | Tailwind CSS      | Utility-first CSS framework (v4, integrated via Vite plugin) |
 | JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects, DOM, events, async programming, Fetch API, arrow functions, template literals, modules |
-| React.js          | Component-based UI development, props, destructuring, conditional rendering, composition, event handling, Hooks (`useState`, `useEffect`), lifecycle & Context API via Vite |
+| React.js          | Component-based UI development, props, destructuring, conditional rendering, composition, event handling, Hooks (`useState`, `useEffect`), lifecycle, Context API & Fetch API integration via Vite |
 | Vite              | Fast React project scaffolding, dev server & build tool (v7) |
 | ESLint            | Flat-config linting for JS/JSX, React Hooks & Fast Refresh rules |
 | Node.js           | Running JavaScript in terminal                       |
@@ -831,7 +1022,8 @@ Day 13 → Arrow functions, template literals, named & default exports/imports +
 Day 14 → Tailwind CSS v4 integrated into the Vite React project via @tailwindcss/vite; full review of package.json, package-lock.json, the ESLint flat config, index.html, and env/git configuration; built out User.jsx & Button.jsx with props and event handling, composed them in App.jsx, and styled the app with App.css
 Day 15 → Props destructuring with default values & conditional rendering in User.jsx; learned React Hooks (useState & useEffect); built a Counter example and a working Stopwatch component (Start/Stop) with interval cleanup in App.jsx
 Day 16 → React component lifecycle (mount/update/unmount) with Timer.jsx; introduced the Context API with a new context/ folder (UserContext.jsx); wrapped Navbar in UserContext.Provider in App.jsx; consumed shared context data in nested Menu.jsx and Profile.jsx components without prop drilling
-Day 17+ → Coming soon...
+Day 17 → Fetch API in React using useEffect + useState; built a Users component fetching from JSONPlaceholder; learned loading & error states; revisited async/await, try...catch, CRUD & HTTP methods in a React context; updated Profile.jsx to read age from UserContext; sketched an App/Navbar/Home/About Us/Features component tree in emaple.md
+Day 18+ → Coming soon...
 ```
 
 ---
@@ -861,6 +1053,7 @@ Day 17+ → Coming soon...
 * [x] React Hooks (useState & useEffect)
 * [x] React Component Lifecycle (mount, update, unmount)
 * [x] React Context API
+* [x] Fetch API in React (useEffect + useState, loading & error states)
 * [ ] Express.js
 * [ ] MongoDB
 * [ ] Full MERN Stack Projects
@@ -869,7 +1062,7 @@ Day 17+ → Coming soon...
 
 ## ⭐ Progress Status
 
-**Current Progress:** Day 16 Completed
+**Current Progress:** Day 17 Completed
 
 ### Skills Learned So Far
 
@@ -921,6 +1114,11 @@ Day 17+ → Coming soon...
 * React Component Lifecycle — mounting, updating & unmounting
 * React Context API — `createContext()`, `Context.Provider`, `useContext()`
 * Sharing data across nested components without prop drilling
+* Fetch API in React with `useEffect` + `useState`
+* Fetching and rendering live data from a REST API (JSONPlaceholder Users)
+* Loading state pattern for async data fetching
+* Error handling pattern with `useState` for failed requests
+* Planning component structure/composition ahead of implementation (`emaple.md`)
 
 ---
 
