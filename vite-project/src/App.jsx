@@ -1,7 +1,7 @@
 
 import React from "react";
-import UserContext from "./assets/context/UserContext";
-import Navbar from "./assets/components/Navbar";
+import UserContext from "./context/UserContext";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   const name = "Darshana";
@@ -17,8 +17,8 @@ export default App;
 
 const _legacy = `
 import React from "react";
-import User from "./assets/components/User";
-import Button from "./assets/components/Button";
+import User from "./components/User";
+import Button from "./components/Button";
 import "./App.css";
 
 function App() {
@@ -142,8 +142,8 @@ export default App;
 // ------------------------------------------
 
 import React from "react";
-import UserContext from "./assets/context/UserContext";
-import Navbar from "./assets/components/Navbar";
+import UserContext from "./context/UserContext";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   // Data that will be shared across components

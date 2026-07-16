@@ -20,6 +20,8 @@
   "homepage": "https://github.com/Darshana-Bhandari/Internship#readme",
   "dependencies": {
     "@tailwindcss/vite": "^4.3.2",
+    "lucide-react": "^1.24.0",
+    "react-router-dom": "^7.18.1",
     "tailwindcss": "^4.3.2"
   }
 }
