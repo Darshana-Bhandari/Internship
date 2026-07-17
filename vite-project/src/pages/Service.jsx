@@ -1,17 +1,15 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import {Outlet} from "react-router-dom"
 
-const Home = () => {
+const Service = () => {
   return (
-    <div>
-        <Navbar />
-       
-        <h1> hi Home page</h1>
-         
-      
-    </div>
+    <>
+      <Navbar />
+      <h1> hello services
+        
+      </h1>
+    </>
   )
 }
 
-export default Home
+export default Service
