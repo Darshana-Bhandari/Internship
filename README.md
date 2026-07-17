@@ -44,17 +44,26 @@ Internship/
 │   │   │   │   ├── Button.jsx    # Day 14 — Button component with onClick handler
 │   │   │   │   ├── User.jsx      # Day 15 — Props-based component, destructuring, default values & conditional rendering
 │   │   │   │   ├── Menu.jsx      # Day 16 — Consumes UserContext, renders Profile
-│   │   │   │   ├── Navbar.jsx    # Day 16 — Wraps and renders Menu
+│   │   │   │   ├── Navbar.jsx    # Day 16 — Wraps and renders Menu; Day 18 — Rebuilt as a routed, responsive navigation bar with react-router-dom `Link`s and a mobile menu toggle
 │   │   │   │   ├── Profile.jsx   # Day 16/17 — Consumes UserContext, displays welcome message / age
 │   │   │   │   └── Timer.jsx     # Day 16 — useEffect mount/update/unmount example
 │   │   │   ├── context/
-│   │   │   │   └── UserContext.jsx  # Day 16 — createContext() setup for Context API
+│   │   │   │   └── UserContext.jsx  # Day 16 — createContext() setup for Context API; Day 18 — Reviewed/kept as the shared context source
 │   │   │   ├── hero.png
 │   │   │   ├── react.svg
 │   │   │   └── vite.svg
+│   │   ├── pages/                 # Day 18 — New folder for route-level page components
+│   │   │   ├── Home.jsx           # Day 18 — Home page, renders Navbar + heading
+│   │   │   ├── About.jsx          # Day 18 — About page, renders Navbar + heading
+│   │   │   ├── Contact.jsx        # Day 18 — Contact page, renders Navbar + heading
+│   │   │   ├── Service.jsx        # Day 18 — Service page, renders Navbar + heading
+│   │   │   └── Error.jsx          # Day 18 — 404 fallback page for unmatched routes
+│   │   ├── routes/                # Day 18 — New folder for routing configuration
+│   │   │   └── AppRoute.jsx       # Day 18 — createBrowserRouter setup + RouterProvider export (AppRoutes)
 │   │   ├── App.css              # Day 14 — Styling for the app shell & button
-│   │   ├── App.jsx              # Day 14,15,16&17 — React Context API example (UserContext.Provider wrapping Navbar) + commented-out Lifecycle/Timer example
+│   │   ├── App.jsx              # Day 14,15,16&17 — React Context API example (UserContext.Provider wrapping Navbar) + commented-out Lifecycle/Timer example; Day 18 — Simplified to render `<AppRoutes />` from routes/AppRoute.jsx
 │   │   ├── day14,15,16&17.js    # Day 17 — Fetch API in React notes and practice (also carries Day 14-16 notes)
+│   │   ├── learning.md          # Day 18 — Notes file covering props, state, hooks, lifecycle, Context API, forms, controlled components & react-router-dom
 │   │   ├── index.css
 │   │   └── main.jsx
 │   ├── .env
@@ -62,8 +71,8 @@ Internship/
 │   ├── emaple.md                # Day 17 — Component tree planning notes (App/Navbar/Home/About/Features)
 │   ├── eslint.config.js         # Day 14 — Flat ESLint config w/ React Hooks + React Refresh rules
 │   ├── index.html               # Day 14 — Vite entry HTML (root div + main.jsx module script)
-│   ├── package.json             # Day 14 — Added Tailwind CSS v4 + @tailwindcss/vite plugin
-│   ├── package-lock.json        # Day 14 — Reviewed lockfile for reproducible installs
+│   ├── package.json             # Day 14 — Added Tailwind CSS v4 + @tailwindcss/vite plugin; Day 18 — Confirmed react-router-dom & lucide-react as dependencies
+│   ├── package-lock.json        # Day 14 — Reviewed lockfile for reproducible installs; Day 18 — Reviewed updated lockfile after react-router-dom install
 │   └── vite.config.js           # Day 14 — Registered @tailwindcss/vite plugin alongside React
 └── internship/                  # Additional internship files/resources
 ```
@@ -954,6 +963,104 @@ export default Profile
 
 ---
 
+### Day 18 — `learning.md` + `routes/AppRoute.jsx` + `pages/` + `App.jsx` + `Navbar.jsx` · *React Router DOM & Multi-Page Routing*
+
+Learned client-side routing with **`react-router-dom`**, restructured the `vite-project` app into dedicated `pages/` and `routes/` folders, and rebuilt the app around a `createBrowserRouter` setup so different URLs render different page components without a full browser reload.
+
+#### `learning.md` — Notes File
+
+* Added a new notes file, `learning.md`, inside `src/`, recapping and extending everything learned so far:
+
+  * Props vs State comparison (props are read-only and passed parent → child; state is mutable and managed within a component)
+  * Why hooks are used: enabling state in functional components, simpler code, reusable logic, easier testing
+  * `useState` — initializing state, updating it with the setter, and triggering a re-render
+  * `useEffect` — the three dependency-array patterns (no array, empty array `[]`, array with dependencies) and common use cases (fetching data, updating document title/metadata, controlling timers)
+  * Component Lifecycle recap: **Mounting** (created & displayed for the first time), **Updating** (state/props/context change), **Unmounting** (removed from the screen)
+  * `useContext` recap — sharing data between components without prop drilling
+  * Brief mention of `useMemo` and `useRef` as hooks to explore further
+  * Event handling flow: user action → handler function executes → UI updates
+  * Forms: controlled components, and why they're used (easy validation, easy form submission, real-time updates, better data management)
+  * Introduced **`react-router-dom`** as a library for client-side routing that lets users navigate between pages without reloading the whole browser page
+
+#### React Router DOM — Installation & Core Concept
+
+* Installed `react-router-dom` (`^7.18.1`) into the `vite-project` dependencies
+* Learned the difference between the **old method** (`<BrowserRouter>` + `<Routes>` + `<Route>` JSX components) and the **new method** using `createBrowserRouter()` — a function that defines all app routes as a single array of route objects
+* Learned the benefits of `createBrowserRouter` over the older JSX-based routing:
+
+  * Cleaner route definitions
+  * More scalable for larger apps
+  * Better structure for many pages
+  * Supports data loaders and actions (for future use)
+
+#### `routes/AppRoute.jsx` — Router Configuration
+
+* Created a new `routes/` folder inside `src/` to keep routing config separate from pages and components
+* Built `AppRoute.jsx`, importing `createBrowserRouter` and `RouterProvider` from `react-router-dom`
+* Defined the app's routes as a single `router` object:
+
+  * Root path `"/"` renders `Home`, with `errorElement: <Error />` as the catch-all for unmatched/broken routes
+  * Nested `children` routes under the root:
+
+    * `index: true` → `Home` (default route)
+    * `"about"` → `About`
+    * `"contact"` → `Contact`
+    * `"service"` → `Service`
+* Exported a default `AppRoutes()` component that simply renders `<RouterProvider router={router} />`, so the whole router can be dropped into `App.jsx` as a single component
+
+#### `pages/` — New Page Components
+
+* Created a new `pages/` folder inside `src/` to hold one component per route/page:
+
+  * **`Home.jsx`** — renders `Navbar` plus a `"hi Home page"` heading
+  * **`About.jsx`** — renders `Navbar` plus a `"hello about us"` heading
+  * **`Contact.jsx`** — renders `Navbar` plus a `"hello contact use"` heading
+  * **`Service.jsx`** — renders `Navbar` plus a `"hello services"` heading
+  * **`Error.jsx`** — a standalone `"404 error page not found"` fallback page (no `Navbar`), wired up as the `errorElement` for unmatched routes
+* Imported `Outlet` from `react-router-dom` into several page files while exploring **nested routes**, learning that `<Outlet />` acts as a placeholder telling React Router where to render a matched **child** route inside a parent route's layout
+
+#### `App.jsx` — Simplified Root Component
+
+* Rewrote `App.jsx` to delegate all page rendering to the router:
+
+  ```jsx
+  import React from "react";
+  import AppRoutes from "./routes/AppRoute";
+  import "./App.css";
+
+  function App() {
+    return <AppRoutes />;
+  }
+
+  export default App;
+  ```
+* Learned that `App.jsx` no longer needs to manually import/render individual pages or wrap things in `UserContext.Provider` for this routing example — that responsibility now lives inside `AppRoute.jsx` and the `pages/` components
+
+#### `Navbar.jsx` — Rebuilt as a Routed, Responsive Navigation Bar
+
+* Rebuilt the `Navbar` component to use `Link` from `react-router-dom` instead of plain `<a>` tags, so navigation between `Home`, `About`, `Service`, and `Contact` happens **without a full page reload**
+* Used `useState` to track an `isOpen` boolean for a **mobile menu toggle**
+* Used icons from **`lucide-react`** (`Menu` and `X`) to visually swap the mobile menu button between an open (`X`) and closed (`Menu`) state
+* Structured the navbar with Tailwind CSS:
+
+  * A logo on the left (`MyLogo`)
+  * A `hidden md:flex` desktop menu with `Link`s to `/`, `/about`, `/service`, and `/contact`
+  * A `hidden md:block` desktop **Login** button
+  * A mobile-only menu button (`md:hidden`) that toggles `isOpen`
+  * A conditionally rendered mobile dropdown menu (`{isOpen && ...}`) containing the same links plus a Login button, shown only on small screens
+* Reinforced hover transition utility classes (`transition hover:text-blue-600`) for consistent link styling across desktop and mobile menus
+
+#### `context/UserContext.jsx` — Reviewed
+
+* Reviewed the existing `UserContext.jsx` (`createContext()` + default export) from Day 16 as still the shared context source, kept unchanged and ready to be wrapped around routed pages later if needed
+
+#### `package.json` / `package-lock.json` — Reviewed After Router Install
+
+* Confirmed `react-router-dom` (`^7.18.1`) and `lucide-react` (`^1.24.0`) are listed as runtime `dependencies` alongside `react`, `react-dom`, `tailwindcss`, and `@tailwindcss/vite`
+* Reviewed the updated `package-lock.json` to confirm `react-router-dom` (and its own dependency, `cookie`) and `lucide-react` resolved correctly with pinned versions and integrity hashes, keeping installs reproducible across machines
+
+---
+
 ## 🛠️ Technologies Used
 
 | Technology        | Usage                                                |
@@ -963,9 +1070,11 @@ export default Profile
 | Tailwind CSS      | Utility-first CSS framework (v4, integrated via Vite plugin) |
 | JavaScript (ES6+) | Logic, conditions, loops, functions, arrays, objects, DOM, events, async programming, Fetch API, arrow functions, template literals, modules |
 | React.js          | Component-based UI development, props, destructuring, conditional rendering, composition, event handling, Hooks (`useState`, `useEffect`), lifecycle, Context API & Fetch API integration via Vite |
+| React Router DOM  | Client-side routing with `createBrowserRouter`, `RouterProvider`, `Link`, nested routes & `Outlet`, custom 404 error pages |
 | Vite              | Fast React project scaffolding, dev server & build tool (v7) |
 | ESLint            | Flat-config linting for JS/JSX, React Hooks & Fast Refresh rules |
 | Node.js           | Running JavaScript in terminal                       |
+| lucide-react      | Icon library used for the responsive navbar's menu/close icons |
 | Google Fonts      | Typography                                           |
 
 ---
@@ -1023,7 +1132,8 @@ Day 14 → Tailwind CSS v4 integrated into the Vite React project via @tailwindc
 Day 15 → Props destructuring with default values & conditional rendering in User.jsx; learned React Hooks (useState & useEffect); built a Counter example and a working Stopwatch component (Start/Stop) with interval cleanup in App.jsx
 Day 16 → React component lifecycle (mount/update/unmount) with Timer.jsx; introduced the Context API with a new context/ folder (UserContext.jsx); wrapped Navbar in UserContext.Provider in App.jsx; consumed shared context data in nested Menu.jsx and Profile.jsx components without prop drilling
 Day 17 → Fetch API in React using useEffect + useState; built a Users component fetching from JSONPlaceholder; learned loading & error states; revisited async/await, try...catch, CRUD & HTTP methods in a React context; updated Profile.jsx to read age from UserContext; sketched an App/Navbar/Home/About Us/Features component tree in emaple.md
-Day 18+ → Coming soon...
+Day 18 → Learned React Router DOM (createBrowserRouter, RouterProvider, Link, nested routes & Outlet); added learning.md notes covering props/state/hooks/lifecycle/context/forms/routing recap; created pages/ (Home, About, Contact, Service, Error) and routes/ (AppRoute.jsx) folders; simplified App.jsx to render <AppRoutes />; rebuilt Navbar.jsx as a responsive, routed navigation bar with react-router-dom Links, a mobile menu toggle using useState, and lucide-react icons; reviewed package.json/package-lock.json after installing react-router-dom
+Day 19+ → Coming soon...
 ```
 
 ---
@@ -1054,6 +1164,7 @@ Day 18+ → Coming soon...
 * [x] React Component Lifecycle (mount, update, unmount)
 * [x] React Context API
 * [x] Fetch API in React (useEffect + useState, loading & error states)
+* [x] React Router DOM (createBrowserRouter, RouterProvider, Link, nested routes)
 * [ ] Express.js
 * [ ] MongoDB
 * [ ] Full MERN Stack Projects
@@ -1062,7 +1173,7 @@ Day 18+ → Coming soon...
 
 ## ⭐ Progress Status
 
-**Current Progress:** Day 17 Completed
+**Current Progress:** Day 18 Completed
 
 ### Skills Learned So Far
 
@@ -1119,6 +1230,13 @@ Day 18+ → Coming soon...
 * Loading state pattern for async data fetching
 * Error handling pattern with `useState` for failed requests
 * Planning component structure/composition ahead of implementation (`emaple.md`)
+* React Router DOM setup (`createBrowserRouter`, `RouterProvider`)
+* Defining routes as a single router object with nested `children` routes
+* `index` routes and `errorElement` for 404 handling
+* Client-side navigation with `Link` (no full page reload)
+* Nested routes and the `<Outlet />` placeholder
+* Organizing a React app into `pages/` and `routes/` folders
+* Building a responsive, routed navbar with a mobile menu toggle (`useState` + `lucide-react` icons)
 
 ---
 
