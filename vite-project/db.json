@@ -1,0 +1,35 @@
+{
+
+    "products":[
+        {
+            "id":1,
+            "name":"Laptop",
+            "price":"1200"
+        },
+        {
+            "id":2,
+            "name":"PC",
+            "price":"5000"
+        },
+          {
+            "id":3,
+            "name":"tablet",
+            "price":"1500"
+        },
+          {
+            "id":4,
+            "name":"iphone",
+            "price":"1300"
+        },
+          {
+            "id":5,
+            "name":"samsung",
+            "price":"1250"
+        },
+          {
+            "id":6,
+            "name":"redmi",
+            "price":"200"
+        }
+    ]
+}

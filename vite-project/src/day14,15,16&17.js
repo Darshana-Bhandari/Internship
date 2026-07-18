@@ -1,4 +1,4 @@
-```jsx
+///day 15 & 16
 /// 1. useState in React
 
 
@@ -299,4 +299,4 @@ const [error, setError] = useState(null);
 // 4. News App
 // 5. Dashboard
 // 6. Blog Website
-```
+
