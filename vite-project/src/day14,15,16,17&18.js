@@ -300,3 +300,89 @@ const [error, setError] = useState(null);
 // 5. Dashboard
 // 6. Blog Website
 
+// ==========================================
+// Day 18 - CRUD Operations with Axios
+// ==========================================
+
+// What is CRUD?
+// --------------
+// CRUD = Create, Read, Update, Delete.
+// These are the 4 basic operations we perform on data
+// in almost every real-world application.
+
+// What is Axios?
+// ---------------
+// Axios is a JavaScript library used to make HTTP requests,
+// similar to fetch(), but with a simpler syntax and some
+// extra built-in features (like automatic JSON parsing).
+
+// Basic Axios methods:
+
+// 1. GET -> Read data
+axios.get("API_URL")
+  .then((response) => console.log(response.data));
+
+// 2. POST -> Create data
+axios.post("API_URL", { title: "New Item" })
+  .then((response) => console.log(response.data));
+
+// 3. PUT -> Update data
+axios.put("API_URL/1", { title: "Updated Item" })
+  .then((response) => console.log(response.data));
+
+// 4. DELETE -> Remove data
+axios.delete("API_URL/1")
+  .then((response) => console.log("deleted"));
+
+
+// Structuring CRUD in a React app
+// ---------------------------------
+// Instead of writing axios calls directly inside components,
+// we keep them in a separate "service" file (e.g. productService.js).
+// This keeps components clean and API logic reusable.
+
+// Example service functions:
+//   getProducts()      -> GET all products
+//   createProducts()   -> POST a new product
+//   updateProducts()   -> PUT/update an existing product
+//   deleteProduct()    -> DELETE a product by id
+
+
+// The CRUD Pattern used in this project
+// ----------------------------------------
+// 1. fetchProducts() -> loads the list (Read), runs once on mount
+//    via useEffect(() => { fetchProducts() }, []).
+//
+// 2. addProduct(product) -> calls createProducts(), then
+//    re-runs fetchProducts() so the UI shows the new item.
+//
+// 3. updateExisting(id, product) -> calls updateProducts(id, product),
+//    clears editingProduct, then re-runs fetchProducts().
+//
+// 4. removeProduct(id) -> calls deleteProduct(id), then
+//    re-runs fetchProducts().
+//
+// Key idea: after every Create/Update/Delete, we refetch the list
+// instead of manually editing local state. This keeps the UI in
+// sync with what's actually on the server.
+
+
+// The "editing" flow
+// --------------------
+// - Clicking "Edit" on a product calls onEdit={setEditingProduct},
+//   storing that product object in state.
+// - ProductForm receives editingProduct as a prop and uses it to
+//   prefill its input fields.
+// - On submit, ProductForm decides whether to call addProduct
+//   (no editingProduct) or updateProducts (editingProduct is set).
+
+
+// Common mistakes to watch for
+// -------------------------------
+// - Forgetting to import useEffect when using it (only importing
+//   useState leaves useEffect undefined).
+// - Naming a function parameter something unrelated to what's used
+//   inside the function body (e.g. writing (IdleDeadline, product)
+//   but then referencing `id` inside — they must match).
+// - Not calling fetchProducts() again after create/update/delete,
+//   which leaves the UI showing stale data.
